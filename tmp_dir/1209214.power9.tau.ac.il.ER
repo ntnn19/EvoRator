@@ -1,0 +1,162 @@
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_vx=x
++ '[' -n x ']'
++ set +x
+Shell debugging restarted
++ unset __lmod_vx
++ hostname
++ echo job_name: test_evo
++ echo 1209214.power9.tau.ac.il
++ module list
+++ /usr/share/lmod/lmod/libexec/lmod bash list
+No modules loaded
++ eval '__LMOD_REF_COUNT_MODULEPATH=/powerapps/share/Modules/Centos7/modulefiles:1\;/usr/share/Modules/modulefiles:1\;/usr/local/Modules/3.2.10/modulefiles:1;' export '__LMOD_REF_COUNT_MODULEPATH;' 'MODULEPATH=/powerapps/share/Modules/Centos7/modulefiles:/usr/share/Modules/modulefiles:/usr/local/Modules/3.2.10/modulefiles;' export 'MODULEPATH;' '_ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXt9LG1wYXRoQT17Ii9wb3dlcmFwcHMvc2hhcmUvTW9kdWxlcy9DZW50b3M3L21vZHVsZWZpbGVzIiwiL3Vzci9zaGFyZS9Nb2R1bGVzL21vZHVsZWZpbGVzIiwiL3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfSxbInN5c3RlbUJhc2VNUEFUSCJdPSIvcG93ZXJhcHBzL3NoYXJlL01vZHVsZXMvQ2VudG9zNy9tb2R1bGVmaWxlczovdXNyL3NoYXJlL01vZHVsZXMvbW9kdWxlZmlsZXM6L3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfQ==;' export '_ModuleTable001_;' '_ModuleTable_Sz_=1;' export '_ModuleTable_Sz_;'
+++ __LMOD_REF_COUNT_MODULEPATH='/powerapps/share/Modules/Centos7/modulefiles:1;/usr/share/Modules/modulefiles:1;/usr/local/Modules/3.2.10/modulefiles:1'
+++ export __LMOD_REF_COUNT_MODULEPATH
+++ MODULEPATH=/powerapps/share/Modules/Centos7/modulefiles:/usr/share/Modules/modulefiles:/usr/local/Modules/3.2.10/modulefiles
+++ export MODULEPATH
+++ _ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXt9LG1wYXRoQT17Ii9wb3dlcmFwcHMvc2hhcmUvTW9kdWxlcy9DZW50b3M3L21vZHVsZWZpbGVzIiwiL3Vzci9zaGFyZS9Nb2R1bGVzL21vZHVsZWZpbGVzIiwiL3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfSxbInN5c3RlbUJhc2VNUEFUSCJdPSIvcG93ZXJhcHBzL3NoYXJlL01vZHVsZXMvQ2VudG9zNy9tb2R1bGVmaWxlczovdXNyL3NoYXJlL01vZHVsZXMvbW9kdWxlZmlsZXM6L3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfQ==
+++ export _ModuleTable001_
+++ _ModuleTable_Sz_=1
+++ export _ModuleTable_Sz_
+++ : -s sh
++ eval
++ module load python/python-anaconda3.7-itaym
+++ /usr/share/lmod/lmod/libexec/lmod bash load python/python-anaconda3.7-itaym
++ eval '__LMOD_REF_COUNT_INCLUDE=/groups/itay_mayrose/lab_python/anaconda3/include:1\;/groups/itay_mayrose/lab_python/anaconda3/pkgs/zlib-1.2.11-h7b6447c_3/include:1;' export '__LMOD_REF_COUNT_INCLUDE;' 'INCLUDE=/groups/itay_mayrose/lab_python/anaconda3/include:/groups/itay_mayrose/lab_python/anaconda3/pkgs/zlib-1.2.11-h7b6447c_3/include;' export 'INCLUDE;' 'LC_ALL=en_US.utf8;' export 'LC_ALL;' '__LMOD_REF_COUNT_LD_LIBRARY_PATH=/groups/itay_mayrose/lab_python/anaconda3/lib:1;' export '__LMOD_REF_COUNT_LD_LIBRARY_PATH;' 'LD_LIBRARY_PATH=/groups/itay_mayrose/lab_python/anaconda3/lib;' export 'LD_LIBRARY_PATH;' '__LMOD_REF_COUNT_LICENSE_FILE=/groups/itay_mayrose/lab_python/anaconda3/LICENSE.txt:1;' export '__LMOD_REF_COUNT_LICENSE_FILE;' 'LICENSE_FILE=/groups/itay_mayrose/lab_python/anaconda3/LICENSE.txt;' export 'LICENSE_FILE;' '__LMOD_REF_COUNT_LOADEDMODULES=python/python-anaconda3.7-itaym:1;' export '__LMOD_REF_COUNT_LOADEDMODULES;' 'LOADEDMODULES=python/python-anaconda3.7-itaym;' export 'LOADEDMODULES;' '__LMOD_REF_COUNT_MANPATH=/groups/itay_mayrose/lab_python/anaconda3/man:1\;/usr/share/lmod/lmod/share/man:1\;/opt/pbs/share/man:1\;/opt/puppetlabs/puppet/share/man:1;' export '__LMOD_REF_COUNT_MANPATH;' 'MANPATH=/groups/itay_mayrose/lab_python/anaconda3/man:/usr/share/lmod/lmod/share/man::/opt/pbs/share/man:/opt/puppetlabs/puppet/share/man;' export 'MANPATH;' 'MODULEPATH=/powerapps/share/Modules/Centos7/modulefiles:/usr/share/Modules/modulefiles:/usr/local/Modules/3.2.10/modulefiles;' export 'MODULEPATH;' '__LMOD_REF_COUNT_PATH=/groups/itay_mayrose/lab_python/anaconda3/bin:1\;/usr/bin:2\;/usr/local/bin:1\;/bin:1\;/usr/local/sbin:1\;/usr/sbin:1\;/usr/local.cc/bin:1\;/mathematica/vers/11.2:1\;/opt/pbs/bin:1\;/powerapps/share/bin:1\;/opt/puppetlabs/bin:1\;/groups/pupko/natannag/.local/bin:1\;/groups/pupko/natannag/bin:1;' export '__LMOD_REF_COUNT_PATH;' 'PATH=/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin;' export 'PATH;' 'PERL5LIB=/groups/itay_mayrose/lab_python/anaconda3/pkgs/perl-5.26.2-h14c3975_0/lib/5.26.2/x86_64-linux-thread-multi/auto/Cwd;' export 'PERL5LIB;' 'PYTHONPATH=/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7:/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7/lib2to3:/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7/lib-dynload:/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7/site-packages;' export 'PYTHONPATH;' '__LMOD_REF_COUNT__LMFILES_=/powerapps/share/Modules/Centos7/modulefiles/python/python-anaconda3.7-itaym:1;' export '__LMOD_REF_COUNT__LMFILES_;' '_LMFILES_=/powerapps/share/Modules/Centos7/modulefiles/python/python-anaconda3.7-itaym;' export '_LMFILES_;' '_ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtweXRob249e1siZm4iXT0iL3Bvd2VyYXBwcy9zaGFyZS9Nb2R1bGVzL0NlbnRvczcvbW9kdWxlZmlsZXMvcHl0aG9uL3B5dGhvbi1hbmFjb25kYTMuNy1pdGF5bSIsWyJmdWxsTmFtZSJdPSJweXRob24vcHl0aG9uLWFuYWNvbmRhMy43LWl0YXltIixbImxvYWRPcmRlciJdPTEscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0icHl0aG9uL3B5dGhvbi1hbmFjb25kYTMuNy1pdGF5bSIsfSx9LG1wYXRoQT17Ii9wb3dlcmFwcHMvc2hhcmUvTW9k;' export '_ModuleTable001_;' '_ModuleTable002_=dWxlcy9DZW50b3M3L21vZHVsZWZpbGVzIiwiL3Vzci9zaGFyZS9Nb2R1bGVzL21vZHVsZWZpbGVzIiwiL3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfSxbInN5c3RlbUJhc2VNUEFUSCJdPSIvcG93ZXJhcHBzL3NoYXJlL01vZHVsZXMvQ2VudG9zNy9tb2R1bGVmaWxlczovdXNyL3NoYXJlL01vZHVsZXMvbW9kdWxlZmlsZXM6L3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfQ==;' export '_ModuleTable002_;' '_ModuleTable_Sz_=2;' export '_ModuleTable_Sz_;'
+++ __LMOD_REF_COUNT_INCLUDE='/groups/itay_mayrose/lab_python/anaconda3/include:1;/groups/itay_mayrose/lab_python/anaconda3/pkgs/zlib-1.2.11-h7b6447c_3/include:1'
+++ export __LMOD_REF_COUNT_INCLUDE
+++ INCLUDE=/groups/itay_mayrose/lab_python/anaconda3/include:/groups/itay_mayrose/lab_python/anaconda3/pkgs/zlib-1.2.11-h7b6447c_3/include
+++ export INCLUDE
+++ LC_ALL=en_US.utf8
+++ export LC_ALL
+++ __LMOD_REF_COUNT_LD_LIBRARY_PATH=/groups/itay_mayrose/lab_python/anaconda3/lib:1
+++ export __LMOD_REF_COUNT_LD_LIBRARY_PATH
+++ LD_LIBRARY_PATH=/groups/itay_mayrose/lab_python/anaconda3/lib
+++ export LD_LIBRARY_PATH
+++ __LMOD_REF_COUNT_LICENSE_FILE=/groups/itay_mayrose/lab_python/anaconda3/LICENSE.txt:1
+++ export __LMOD_REF_COUNT_LICENSE_FILE
+++ LICENSE_FILE=/groups/itay_mayrose/lab_python/anaconda3/LICENSE.txt
+++ export LICENSE_FILE
+++ __LMOD_REF_COUNT_LOADEDMODULES=python/python-anaconda3.7-itaym:1
+++ export __LMOD_REF_COUNT_LOADEDMODULES
+++ LOADEDMODULES=python/python-anaconda3.7-itaym
+++ export LOADEDMODULES
+++ __LMOD_REF_COUNT_MANPATH='/groups/itay_mayrose/lab_python/anaconda3/man:1;/usr/share/lmod/lmod/share/man:1;/opt/pbs/share/man:1;/opt/puppetlabs/puppet/share/man:1'
+++ export __LMOD_REF_COUNT_MANPATH
+++ MANPATH=/groups/itay_mayrose/lab_python/anaconda3/man:/usr/share/lmod/lmod/share/man::/opt/pbs/share/man:/opt/puppetlabs/puppet/share/man
+++ export MANPATH
+++ MODULEPATH=/powerapps/share/Modules/Centos7/modulefiles:/usr/share/Modules/modulefiles:/usr/local/Modules/3.2.10/modulefiles
+++ export MODULEPATH
+++ __LMOD_REF_COUNT_PATH='/groups/itay_mayrose/lab_python/anaconda3/bin:1;/usr/bin:2;/usr/local/bin:1;/bin:1;/usr/local/sbin:1;/usr/sbin:1;/usr/local.cc/bin:1;/mathematica/vers/11.2:1;/opt/pbs/bin:1;/powerapps/share/bin:1;/opt/puppetlabs/bin:1;/groups/pupko/natannag/.local/bin:1;/groups/pupko/natannag/bin:1'
+++ export __LMOD_REF_COUNT_PATH
+++ PATH=/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
+++ export PATH
+++ PERL5LIB=/groups/itay_mayrose/lab_python/anaconda3/pkgs/perl-5.26.2-h14c3975_0/lib/5.26.2/x86_64-linux-thread-multi/auto/Cwd
+++ export PERL5LIB
+++ PYTHONPATH=/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7:/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7/lib2to3:/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7/lib-dynload:/groups/itay_mayrose/lab_python/anaconda3/lib/python3.7/site-packages
+++ export PYTHONPATH
+++ __LMOD_REF_COUNT__LMFILES_=/powerapps/share/Modules/Centos7/modulefiles/python/python-anaconda3.7-itaym:1
+++ export __LMOD_REF_COUNT__LMFILES_
+++ _LMFILES_=/powerapps/share/Modules/Centos7/modulefiles/python/python-anaconda3.7-itaym
+++ export _LMFILES_
+++ _ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtweXRob249e1siZm4iXT0iL3Bvd2VyYXBwcy9zaGFyZS9Nb2R1bGVzL0NlbnRvczcvbW9kdWxlZmlsZXMvcHl0aG9uL3B5dGhvbi1hbmFjb25kYTMuNy1pdGF5bSIsWyJmdWxsTmFtZSJdPSJweXRob24vcHl0aG9uLWFuYWNvbmRhMy43LWl0YXltIixbImxvYWRPcmRlciJdPTEscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0icHl0aG9uL3B5dGhvbi1hbmFjb25kYTMuNy1pdGF5bSIsfSx9LG1wYXRoQT17Ii9wb3dlcmFwcHMvc2hhcmUvTW9k
+++ export _ModuleTable001_
+++ _ModuleTable002_=dWxlcy9DZW50b3M3L21vZHVsZWZpbGVzIiwiL3Vzci9zaGFyZS9Nb2R1bGVzL21vZHVsZWZpbGVzIiwiL3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfSxbInN5c3RlbUJhc2VNUEFUSCJdPSIvcG93ZXJhcHBzL3NoYXJlL01vZHVsZXMvQ2VudG9zNy9tb2R1bGVmaWxlczovdXNyL3NoYXJlL01vZHVsZXMvbW9kdWxlZmlsZXM6L3Vzci9sb2NhbC9Nb2R1bGVzLzMuMi4xMC9tb2R1bGVmaWxlcyIsfQ==
+++ export _ModuleTable002_
+++ _ModuleTable_Sz_=2
+++ export _ModuleTable_Sz_
+++ : -s sh
++ eval
++ source activate /groups/pupko/natannag/conda/envs/NatanEnv
+++ _CONDA_ROOT=/groups/itay_mayrose/lab_python/anaconda3
+++ . /groups/itay_mayrose/lab_python/anaconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/conda
++++ CONDA_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/python
++++ CONDA_PYTHON_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n x ']'
++++ '[' -n '' ']'
++++++ dirname /groups/itay_mayrose/lab_python/anaconda3/bin/conda
+++++ dirname /groups/itay_mayrose/lab_python/anaconda3/bin
++++ PATH=/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate /groups/pupko/natannag/conda/envs/NatanEnv
+++ '[' 2 -lt 1 ']'
+++ local cmd=activate
+++ shift
+++ case "$cmd" in
+++ __conda_activate activate /groups/pupko/natannag/conda/envs/NatanEnv
+++ '[' -n '' ']'
+++ local cmd=activate
+++ shift
+++ local ask_conda
+++ CONDA_INTERNAL_OLDPATH=/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
+++ __add_sys_prefix_to_path
+++ '[' -n '' ']'
++++ dirname /groups/itay_mayrose/lab_python/anaconda3/bin/conda
+++ SYSP=/groups/itay_mayrose/lab_python/anaconda3/bin
++++ dirname /groups/itay_mayrose/lab_python/anaconda3/bin
+++ SYSP=/groups/itay_mayrose/lab_python/anaconda3
+++ '[' -n '' ']'
+++ PATH=/groups/itay_mayrose/lab_python/anaconda3/bin:/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
+++ export PATH
++++ PS1=
++++ /groups/itay_mayrose/lab_python/anaconda3/bin/conda shell.posix activate /groups/pupko/natannag/conda/envs/NatanEnv
+++ ask_conda='PS1='\''(NatanEnv) '\''
+export PATH='\''/groups/pupko/natannag/conda/envs/NatanEnv/bin:/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin'\''
+export CONDA_PREFIX='\''/groups/pupko/natannag/conda/envs/NatanEnv'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''NatanEnv'\''
+export CONDA_PROMPT_MODIFIER='\''(NatanEnv) '\''
+export CONDA_EXE='\''/groups/itay_mayrose/lab_python/anaconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/groups/itay_mayrose/lab_python/anaconda3/bin/python'\'''
+++ rc=0
+++ PATH=/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
+++ eval 'PS1='\''(NatanEnv) '\''
+export PATH='\''/groups/pupko/natannag/conda/envs/NatanEnv/bin:/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin'\''
+export CONDA_PREFIX='\''/groups/pupko/natannag/conda/envs/NatanEnv'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''NatanEnv'\''
+export CONDA_PROMPT_MODIFIER='\''(NatanEnv) '\''
+export CONDA_EXE='\''/groups/itay_mayrose/lab_python/anaconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/groups/itay_mayrose/lab_python/anaconda3/bin/python'\'''
++++ PS1='(NatanEnv) '
++++ export PATH=/groups/pupko/natannag/conda/envs/NatanEnv/bin:/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
++++ PATH=/groups/pupko/natannag/conda/envs/NatanEnv/bin:/groups/itay_mayrose/lab_python/anaconda3/condabin:/groups/itay_mayrose/lab_python/anaconda3/bin:/usr/bin:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/local.cc/bin:/mathematica/vers/11.2:/opt/pbs/bin:/powerapps/share/bin:/opt/puppetlabs/bin:/groups/pupko/natannag/.local/bin:/groups/pupko/natannag/bin
++++ export CONDA_PREFIX=/groups/pupko/natannag/conda/envs/NatanEnv
++++ CONDA_PREFIX=/groups/pupko/natannag/conda/envs/NatanEnv
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=NatanEnv
++++ CONDA_DEFAULT_ENV=NatanEnv
++++ export 'CONDA_PROMPT_MODIFIER=(NatanEnv) '
++++ CONDA_PROMPT_MODIFIER='(NatanEnv) '
++++ export CONDA_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/conda
++++ CONDA_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/python
++++ CONDA_PYTHON_EXE=/groups/itay_mayrose/lab_python/anaconda3/bin/python
+++ '[' 0 '!=' 0 ']'
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ python /groups/pupko/natannag/EvoRator/evorator_final_backup_270722.py 2lzm '' A /groups/pupko/natannag/EvoRator/data/catalytic_sites.csv /groups/pupko/natannag/EvoRator/output --orphan-prediction=True --trained-regressor=/groups/pupko/natannag/EvoRator/evorator_model/EvoRator_SVR_final_model_PERFO_281121.joblib --consurfdb-query= --consurf-output= --prediction-task= --job-title=2LZM

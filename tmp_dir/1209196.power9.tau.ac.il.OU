@@ -1,0 +1,4 @@
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+compute-0-299.power
+job_name: test_evo
+1209196.power9.tau.ac.il

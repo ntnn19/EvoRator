@@ -1,0 +1,13 @@
+#!/bin/bash -x
+#PBS -S /bin/bash
+#PBS -q pupkolab@power9
+#PBS -N test_evo
+#PBS -e tmp_dir
+#PBS -o tmp_dir
+#PBS -r y
+hostname
+echo job_name: test_evo
+echo $PBS_JOBID
+module list
+module load python/python-anaconda3.7-itaym;source activate /groups/pupko/natannag/conda/envs/NatanEnv;
+python /groups/pupko/natannag/EvoRator/evorator_final_backup_270722.py 2lzm "" A /groups/pupko/natannag/EvoRator/data/catalytic_sites.csv /groups/pupko/natannag/EvoRator/output --orphan-prediction="True" --trained-regressor=/groups/pupko/natannag/EvoRator/evorator_model/EvoRator_SVR_final_model_PERFO_281121.joblib --consurfdb-query="" --consurf-output="" --prediction-task="" --job-title=2LZM

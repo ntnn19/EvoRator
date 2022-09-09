@@ -217,23 +217,32 @@ def initialize_html(CONSTS, output_dir_path, html_path):
 @click.option('--prediction-task',type=str)
 def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_prediction, trained_regressor,
          consurf_output,consurfdb_query,job_title,html_path,predict,prediction_task):
+    print('semek')
 
     try:
+        if not html_path:
+            print('semek')
+            results_dir = os.path.join(results_dir, pdb_name + '_' + pdb_chain)
+            os.makedirs(results_dir, exist_ok=True)
+
+            print(results_dir)
+            print('semek')
+        else:
+            run_number = initialize_html(CONSTS, results_dir, html_path)
+            # final_zip_path = f'{os.path.split(results_dir)[0]}/{CONSTS.WEBSERVER_NAME}_{run_number}'
+
+            os.makedirs(results_dir, exist_ok=True)
+
+        print('semek')
         logging.basicConfig(filename=results_dir + '/' + 'feature_extraction_and_prediction.log',
                             level=logging.DEBUG,
                             format='%(asctime)s %(levelname)-8s %(message)s',
                             datefmt='%Y-%m-%d %H:%M:%S')
         logging.debug(f'FINAL EVORATOR')
-        scripts_dir = os.path.join("/groups/pupko/natannag/", "consurf_n2v", "huang")
+        scripts_dir = os.path.join("/groups/pupko/natannag/", "EvoRator")
         error_path = f'{results_dir}/error.txt'
-        # try:
 
         logging.debug(f'sklearn version = {sklearn.__version__}')
-        if html_path:
-            run_number = initialize_html(CONSTS, results_dir, html_path)
-            # final_zip_path = f'{os.path.split(results_dir)[0]}/{CONSTS.WEBSERVER_NAME}_{run_number}'
-
-        os.makedirs(results_dir, exist_ok=True)
 
         if consurf_output:
             with open(consurf_output,'r') as f:
@@ -387,11 +396,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 logging.debug(f'No chains found for {os.path.split(pdb_input)[-1].split(".")[0].upper()}\n\n')
                 continue
 
-
-
-
-
-
+        logging.debug(f'getting edge_list_file')
+        # identifier_edgelist_calculator = pdb_name+'_0-'+pdb_chain
+        # edgelist_file = extract_pairwise_distances.get_edge_list(identifier_edgelist_calculator,results_dir)
+        # logging.debug(f'edge_list_file:{edgelist_file}')
         Compute_bulk_input =os.path.join(results_dir,'Compute_bulk_input.txt')
         #Compute_bulk_output =os.path.join(results_dir,'Compute_bulk_output.zip')
         f = open(Compute_bulk_input,'w')
@@ -966,9 +974,13 @@ if __name__ == '__main__':
         sys.path.append('/bioseq/evorator/auxiliaries/')
         sys.path.append('/bioseq/bioSequence_scripts_and_constants/')
         sys.path.append('/groups/pupko/natannag/consurf_n2v/huang')
-
+        sys.path.append('/groups/pupko/natannag/ScanNet_dev/')
+        sys.path.append('/groups/pupko/natannag/EvolutionPrediction/')
+        #
+    # C:\Users\natan\Documents\EvolutionPrediction\extract_pairwise_distances.py
     import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
     from GENERAL_CONSTANTS import PDB_DIVIDED  # from /bioseq/bioSequence_scripts_and_constants/
+    import extract_pairwise_distances
     import json
     import time
     import pandas as pd
