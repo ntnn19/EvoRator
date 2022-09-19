@@ -360,7 +360,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             subprocess.check_output(f'cp {local_gz_file_path} {results_dir}', shell=True)
             pdb_file_unzipped_path = os.path.join(results_dir, pdb_file_name)
             local_pdb_file_path = os.path.join(results_dir, ".".join(pdb_file_name.split(".")[:2]))
-            if not os.path.exists(local_pdb_file_path):  # file exists
+            if not os.path.exists(final_pdb_file_path):  # file exists
                 logging.debug(f'gunzip cmd = cp {local_gz_file_path} {results_dir}')
                 subprocess.check_output(f'gunzip {pdb_file_unzipped_path}', shell=True)
                 shutil.copyfile(local_pdb_file_path, final_pdb_file_path)
