@@ -1043,7 +1043,7 @@ if __name__ == '__main__':
         sys.path.append('/groups/pupko/natannag/EvolutionPrediction/')
         #
     # C:\Users\natan\Documents\EvolutionPrediction\extract_pairwise_distances.py
-    laptop = True
+    laptop = True if os.path.exists("/groups/pupko/natannag") else False
     if laptop:
         path2github = "../"
         path2scannet = "C:/Users/natan/Documents/ScanNet_dev/"
