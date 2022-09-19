@@ -81,7 +81,8 @@ def formatNdump2(tempNdump2File, originalNdump2, nodeList):
 """
 if __name__ == "__main__":
 	netFileName = sys.argv[1]
-	
+	ORCA_EXE_PATH = sys.argv[2]
+
 	if not netFileName.endswith('.gw'):
 		print ('ERROR: The network file should be in LEDA format!')
 		exit(0)
@@ -96,7 +97,8 @@ if __name__ == "__main__":
 	
 	# Run the ORCA graphlet counting code with the resulting file
 	tempNdump2File = netFileName.rsplit('.', 1)[0] + '_temp.ndump2'
-	cmd = '/groups/pupko/natannag/consurf_n2v/huang/calc_gdv/orca/orca.exe 5 ' + outputFileName + ' ' + tempNdump2File
+	# natan_server = "/groups/pupko/natannag/consurf_n2v/huang/"
+	cmd = ORCA_EXE_PATH+' 5 ' + outputFileName + ' ' + tempNdump2File
 	print(cmd)
 	os.system(cmd)
 	

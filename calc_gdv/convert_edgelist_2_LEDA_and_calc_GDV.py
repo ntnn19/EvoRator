@@ -26,7 +26,7 @@ import click
 # 3 5 0 |{}|
 
 
-def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,sep="\t",graph_rep="NAPS",suffix=''):
+def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,count_py_script_path,sep="\t",graph_rep="NAPS",suffix=''):
     print(edgelist)
     p=os.path.join(output_dir, suffix + ".gw")
     output = open(p,'w')
@@ -67,11 +67,14 @@ def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,sep="\t",graph_rep=
             # print(i)
             # output.write(f'{i[0]} {i[1]} 0 |{{{G.get_edge_data(i[0],i[1])["weight"]}}}|\n')
     output.close()
-    scripts_dir = os.path.join("/groups/pupko/natannag", "consurf_n2v", "huang")
-    script_path =  os.path.join(scripts_dir,'calc_gdv', 'count.py')
-    cmd = f'python {script_path} {p}'
+
+    # scripts_dir = os.path.join("/groups/pupko/natannag", "consurf_n2v", "huang")
+    # script_path =  os.path.join(scripts_dir,'calc_gdv', 'count.py')
+    # cmd = f' python {count_py_script_path} {p}'
+    cmd = f'python count.py {p}'
     logging.debug(cmd)
-    subprocess.check_output(cmd,shell=True)
+    # subprocess.check_output(cmd,shell=True)
+    subprocess.check_output(cmd,shell=True,cwd=os.getcwd())
 
 def concatenate_GDV_tables(output_dir):
     tables=[]
@@ -91,12 +94,13 @@ def concatenate_GDV_tables(output_dir):
 @click.command()
 @click.argument('edgelist', type=click.Path(exists=True))
 @click.argument('output_dir', type=click.Path(exists=True))
+@click.argument('count_py_script_path', type=click.Path(exists=True))
 @click.option('--sep', type=str, default = '\t')
 @click.option('--job-title', type=str,default = '')
 @click.option('--graph-rep', type=click.Choice(['NAPS', 'PPI'], case_sensitive=True),
               default='NAPS',show_default=True,help='NAPS/PPI if graph represents protein structure or protein interaction network, respectively')
-def main(edgelist,output_dir, sep,graph_rep,job_title):
-    convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,sep,graph_rep,suffix=job_title)
+def main(edgelist,output_dir, count_py_script_path, sep,graph_rep,job_title):
+    convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,count_py_script_path,sep,graph_rep,suffix=job_title)
     final_GDV_table= concatenate_GDV_tables(output_dir)
     final_GDV_table.to_csv(os.path.join(output_dir,job_title+'.gdv.csv'),index=False)
 

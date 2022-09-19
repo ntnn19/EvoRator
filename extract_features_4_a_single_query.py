@@ -64,12 +64,11 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
     Returns n x m matrix where n is the number of positions in the PDB_FILE and m is the number of features'''
 
     job_result_dir = results_dir
-    scripts_dir = os.path.join("/groups/pupko/natannag/", "consurf_n2v", "huang")
+    if os.path.exists("/groups/pupko/natannag/"):
+        scripts_dir = os.path.join("/groups/pupko/natannag/", "consurf_n2v", "huang")
+    else:
+        scripts_dir = ""
 
-    logging.basicConfig(filename=job_result_dir + '/' + 'feature_extraction_4_query_preparation.log',
-                        level=logging.DEBUG,
-                        format='%(asctime)s %(levelname)-8s %(message)s',
-                        datefmt='%Y-%m-%d %H:%M:%S')
     #    if job_title== '':
     #       job_title = os.path.split(pdb_file_single_chain)[-1].split(".")[0]
 
@@ -139,7 +138,7 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
         logging.debug('Running convert_edgelist_2_LEDA_and_calc_GDV')
         calc_gdv_script = os.path.join(scripts_dir, 'calc_gdv', 'convert_edgelist_2_LEDA_and_calc_GDV.py')
 
-        cmd = f'python {calc_gdv_script} {edgelist} {job_result_dir} --job-title={job_title}'
+        cmd = f'python {calc_gdv_script} {edgelist} {job_result_dir}  calc_gdv/count.py --job-title={job_title}'
         logging.debug(cmd)
         subprocess.check_output(cmd, shell=True)
 

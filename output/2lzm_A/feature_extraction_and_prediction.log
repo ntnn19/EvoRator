@@ -351,3 +351,41 @@
 2022-09-09 11:44:45 DEBUG    creating network image: /groups/pupko/natannag/conda/envs/NatanEnv/bin/python /groups/pupko/natannag/EvoRator/draw_3d_network.py /groups/pupko/natannag/EvoRator/output/2lzm_A/Compute_bulk_input/xyz/2LZM_A_xyz.txt /groups/pupko/natannag/EvoRator/output/2lzm_A/Compute_bulk_input/edgelist/2LZM_A_edgelist.txt /groups/pupko/natannag/EvoRator/output/2lzm_A/evorator.scores.for.2d /groups/pupko/natannag/EvoRator/output/2lzm_A
 2022-09-09 11:44:47 DEBUG    773
 2022-09-09 11:44:47 DEBUG    779
+2022-09-11 16:33:23 DEBUG    FINAL EVORATOR
+2022-09-11 16:33:23 DEBUG    sklearn version = 0.23.2
+2022-09-11 16:33:23 DEBUG    174
+2022-09-11 17:12:27 DEBUG    FINAL EVORATOR
+2022-09-11 17:12:27 DEBUG    sklearn version = 0.23.2
+2022-09-11 17:12:27 DEBUG    174
+2022-09-11 17:12:27 DEBUG    pdb_val.py failed
+2022-09-11 17:12:27 DEBUG    getting edge_list_file
+2022-09-11 17:12:27 DEBUG    output\2lzm_A\2LZM_A_edgelist.txt
+2022-09-11 17:12:27 DEBUG    Running calc_wcn
+2022-09-11 17:12:27 DEBUG    python calc_wcn.py output\2lzm_A\pdb2lzm.pdb -d output\2lzm_A
+2022-09-11 17:12:29 DEBUG    pdb_code1: pdb2lzm
+2022-09-11 17:12:29 DEBUG    pdb_code2: pdb2lzm
+2022-09-11 17:12:29 DEBUG    chain pairs: []
+2022-09-12 10:12:10 DEBUG    FINAL EVORATOR
+2022-09-12 10:12:10 DEBUG    sklearn version = 0.23.2
+2022-09-12 10:12:10 DEBUG    174
+2022-09-12 10:12:10 DEBUG    pdb_val.py failed
+2022-09-12 10:12:10 DEBUG    getting edge_list_file
+2022-09-12 10:12:10 DEBUG    output\2lzm_A\2LZM_A_edgelist.txt
+2022-09-12 10:12:10 DEBUG    pdb_code1: pdb2lzm
+2022-09-12 10:12:10 DEBUG    pdb_code2: pdb2lzm
+2022-09-12 10:12:10 DEBUG    chain pairs: []
+2022-09-12 23:07:08 DEBUG    FINAL EVORATOR
+2022-09-12 23:07:08 DEBUG    sklearn version = 0.23.2
+2022-09-12 23:07:08 DEBUG    174
+2022-09-14 13:10:05 DEBUG    FINAL EVORATOR
+2022-09-14 13:10:05 DEBUG    sklearn version = 0.23.2
+2022-09-14 13:10:05 DEBUG    174
+2022-09-14 14:24:33 DEBUG    FINAL EVORATOR
+2022-09-14 14:24:33 DEBUG    sklearn version = 0.23.2
+2022-09-14 14:24:33 DEBUG    174
+2022-09-14 14:25:45 DEBUG    FINAL EVORATOR
+2022-09-14 14:25:45 DEBUG    sklearn version = 0.23.2
+2022-09-14 14:25:45 DEBUG    174
+2022-09-14 14:27:38 DEBUG    FINAL EVORATOR
+2022-09-14 14:27:38 DEBUG    sklearn version = 0.23.2
+2022-09-14 14:27:38 DEBUG    174
