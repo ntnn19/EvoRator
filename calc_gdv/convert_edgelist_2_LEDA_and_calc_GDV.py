@@ -70,8 +70,8 @@ def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,count_py_script_pat
 
     # scripts_dir = os.path.join("/groups/pupko/natannag", "consurf_n2v", "huang")
     # script_path =  os.path.join(scripts_dir,'calc_gdv', 'count.py')
-    # cmd = f' python {count_py_script_path} {p}'
-    cmd = f'python count.py {p}'
+    cmd = f' python {count_py_script_path} {p}'
+    # cmd = f'python count.py {p}'
     logging.debug(cmd)
     # subprocess.check_output(cmd,shell=True)
     subprocess.check_output(cmd,shell=True,cwd=os.getcwd())
