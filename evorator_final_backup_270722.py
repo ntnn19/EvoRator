@@ -388,10 +388,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         print(final_pdb_file_path)
         print(382)
         exit()
-    try:
-        os.path.exists(pdb_input)
-    except:
-        raise FileNotFoundError
+        try:
+            os.path.exists(pdb_input)
+        except:
+            raise FileNotFoundError
     try:
     #    cmd = f'module load python/python-anaconda3.7-itaym; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
     #     cmd = f'module load python/python-anaconda3.7-itaym; source activate /groups/pupko/natannag/conda/envs/NatanEnv; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
