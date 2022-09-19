@@ -370,6 +370,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
             backbone_coordinates = PDB_processing.process_chain(chains)[2]
             residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
+        pdb_input = final_pdb_file_path
 
 
         # subprocess.check_output(f'cp {local_pdb_file_path} {final_pdb_file_path}', shell=True)
@@ -396,25 +397,24 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         PDBio.extract_chains(pdb_input, [(0, pdb_chain)], final_pdb_file_path)
         print(final_pdb_file_path)
         print(382)
-        exit()
         try:
             os.path.exists(pdb_input)
         except:
             raise FileNotFoundError
-    try:
-    #    cmd = f'module load python/python-anaconda3.7-itaym; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
-    #     cmd = f'module load python/python-anaconda3.7-itaym; source activate /groups/pupko/natannag/conda/envs/NatanEnv; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
-        cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
-        subprocess.check_output(cmd, shell=True)
-        pdb_val_out =  os.path.join(results_dir,'pdb_val.output')
-        pdb_val_out_f = open(pdb_val_out,'r')
-        content= pdb_val_out_f.read()
-        pdb_val_out_f.close()
-        if "OK" not in content:
-            logging.debug('unusual pdb file')
+        try:
+        #    cmd = f'module load python/python-anaconda3.7-itaym; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
+        #     cmd = f'module load python/python-anaconda3.7-itaym; source activate /groups/pupko/natannag/conda/envs/NatanEnv; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
+            cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
+            subprocess.check_output(cmd, shell=True)
+            pdb_val_out =  os.path.join(results_dir,'pdb_val.output')
+            pdb_val_out_f = open(pdb_val_out,'r')
+            content= pdb_val_out_f.read()
+            pdb_val_out_f.close()
+            if "OK" not in content:
+                logging.debug('unusual pdb file')
 
-    except:
-        logging.debug(f'pdb_val.py failed')
+        except:
+            logging.debug(f'pdb_val.py failed')
     # except Exception as e:
     #     logging.debug(f'SUCCEEDED = False')
     #     logging.debug(e)
@@ -497,7 +497,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     done_path_neigh = os.path.join(results_dir, job_title + "_neighbor_map.csv")
     done_path_features_only = os.path.join(results_dir, job_title + "_features.csv")
     done_figure_path = os.path.join(results_dir, job_title + "_regression.png")
-    df_merged = extract_features_4_a_single_query.extract_features(edgelist_file, pdb_input,pdb_file_single_chain_path, pdb_chain, catalytic_sites,results_dir, consurf_output=consurf_output,job_title=job_title)
+    df_merged = extract_features_4_a_single_query.extract_features(edgelist_file, pdb_input,pdb_input, pdb_chain, catalytic_sites,results_dir, consurf_output=consurf_output,job_title=job_title)
     logging.debug(f'raw feature table {df_merged.columns.tolist()}')
     if not predict:
         n2v_flag = False
