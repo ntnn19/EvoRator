@@ -392,7 +392,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         chains = PDBio.load_chains(file=pdb_input, chain_ids=[(0, pdb_chain)])[1]
         sequence_from_pdb = PDB_processing.process_chain(chains)[0]
         backbone_coordinates = PDB_processing.process_chain(chains)[2]
-        residue_indices = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
+        residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
         PDBio.extract_chains(pdb_input, [(0, pdb_chain)], final_pdb_file_path)
         print(final_pdb_file_path)
         print(382)
