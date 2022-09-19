@@ -32,14 +32,14 @@ EVORATOR_LOGS_DIR = os.path.join(SERVERS_LOGS_DIR, 'evorator')
 EVORATOR_RESULTS_URL = os.path.join(WEBSERVER_URL, 'results')
 EVORATOR_HTML_DIR = '/data/www/html/evorator'
 
-EVORATOR_EXEC = '/groups/pupko/natannag/consurf_n2v/huang'
+EVORATOR_EXEC = '/groups/pupko/natannag/EvoRator'
 
-CATALYTIC_RES_DB = os.path.join(EVORATOR_EXEC, 'catalytic_sites.csv')
+CATALYTIC_RES_DB = os.path.join(EVORATOR_EXEC,'data', 'catalytic_sites.csv')
 #TRAINED_SVR = os.path.join(EVORATOR_EXEC, 'regression_results','trained_classifier_keep','estimator_4_ORFan_analysis_keep.pkl')
 #TRAINED_XTR = os.path.join(EVORATOR_EXEC, 'results_4_webserver','EvoRator_default_all_features_final.joblib')
 TRAINED_SVR = os.path.join(EVORATOR_EXEC, 'results_4_webserver','EvoRator_default_all_features_SVR_final_110921.joblib')
-TRAINED_SVR_perfo = os.path.join(EVORATOR_EXEC, 'results_4_webserver','model_selection','svr_fs','EvoRator_SVR_final_model_PERFO_281121.joblib')
-TRAINED_SVR_perfgr = os.path.join(EVORATOR_EXEC, 'results_4_webserver','model_selection','perfgr','svr_fs','EvoRator_SVR_final_model_PERFGR.joblib')
+TRAINED_SVR_perfo = os.path.join(EVORATOR_EXEC, 'evorator_model','EvoRator_SVR_final_model_PERFO_281121.joblib')
+TRAINED_SVR_perfgr = os.path.join(EVORATOR_EXEC, 'evorator_model','EvoRator_SVR_final_model_PERFGR.joblib')
 FITTED_PSSM_PREPROCESSOR = os.path.join(EVORATOR_EXEC, 'trained_pssm_model','preprocessor_pssm_280722.pkl')
 TRAINED_PSSM_ANN = os.path.join(EVORATOR_EXEC, 'trained_pssm_model','trained_ANN_pssm_280722.pkl')
 #MAIN_SCRIPT = os.path.join(EVORATOR_EXEC, 'evorator.py')

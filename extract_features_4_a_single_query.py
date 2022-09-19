@@ -16,11 +16,6 @@ from functools import reduce
 import logging
 import sys
 
-sys.path.append("/groups/pupko/natannag/consurf_n2v/huang/glycosylator-master")
-try:
-    import glycosylator as gl
-except:
-    pass
 
 
 #
@@ -65,7 +60,13 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
 
     job_result_dir = results_dir
     if os.path.exists("/groups/pupko/natannag/"):
-        scripts_dir = os.path.join("/groups/pupko/natannag/", "consurf_n2v", "huang")
+        scripts_dir = CONSTS.EVORATOR_EXEC
+        sys.path.append("/groups/pupko/natannag/consurf_n2v/huang/glycosylator-master")
+        try:
+            import glycosylator as gl
+        except:
+            pass
+
     else:
         scripts_dir = ""
 
@@ -137,6 +138,7 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
     if not os.path.exists(os.path.join(job_result_dir, job_title + ".gdv.csv")):
         logging.debug('Running convert_edgelist_2_LEDA_and_calc_GDV')
         calc_gdv_script = os.path.join(scripts_dir, 'calc_gdv', 'convert_edgelist_2_LEDA_and_calc_GDV.py')
+        count_script = os.path.join(scripts_dir, 'calc_gdv', 'count.py')
 
         cmd = f'python {calc_gdv_script} {edgelist} {job_result_dir}  calc_gdv/count.py --job-title={job_title}'
         logging.debug(cmd)
@@ -444,5 +446,6 @@ if __name__ == '__main__':
     from functools import reduce
     import logging
     import itertools
+    import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
 
     main()
