@@ -364,9 +364,9 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 logging.debug(f'gunzip cmd = cp {local_gz_file_path} {results_dir}')
                 subprocess.check_output(f'gunzip {pdb_file_unzipped_path}', shell=True)
                 shutil.copyfile(local_pdb_file_path, final_pdb_file_path)
-
-            PDBio.extract_chains(final_pdb_file_path, [(0, pdb_chain)], final_pdb_file_path )
-            chains = PDBio.load_chains(file=final_pdb_file_path, chain_ids=[(0, pdb_chain)])[1]
+            chain_ids = [(0, pdb_chain)]
+            PDBio.extract_chains(final_pdb_file_path,chain_ids , final_pdb_file_path )
+            chains = PDBio.load_chains(file=final_pdb_file_path, chain_ids=chain_ids)[1]
 
             backbone_coordinates = PDB_processing.process_chain(chains)[2]
             residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
