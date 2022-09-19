@@ -140,7 +140,7 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
         calc_gdv_script = os.path.join(scripts_dir, 'calc_gdv', 'convert_edgelist_2_LEDA_and_calc_GDV.py')
         count_script = os.path.join(scripts_dir, 'calc_gdv', 'count.py')
 
-        cmd = f'python {calc_gdv_script} {edgelist} {job_result_dir}  calc_gdv/count.py --job-title={job_title}'
+        cmd = f'python {calc_gdv_script} {edgelist} {job_result_dir} {count_script} --job-title={job_title}'
         logging.debug(cmd)
         subprocess.check_output(cmd, shell=True)
 
