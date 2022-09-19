@@ -61,7 +61,7 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
     job_result_dir = results_dir
     if os.path.exists("/groups/pupko/natannag/"):
         scripts_dir = CONSTS.EVORATOR_EXEC
-        sys.path.append("/groups/pupko/natannag/consurf_n2v/huang/glycosylator-master")
+        sys.path.append(os.path.join(scripts_dir,"glycosylator-master"))
         try:
             import glycosylator as gl
         except:
