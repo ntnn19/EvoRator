@@ -18,7 +18,7 @@
 
 import os
 import sys
-
+from EvoRator.evorator_CONSTANTS import ORCA_GDV_SCRIPT
 """
 	Helper functions are defined here
 """
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 	# Run the ORCA graphlet counting code with the resulting file
 	tempNdump2File = netFileName.rsplit('.', 1)[0] + '_temp.ndump2'
 	# natan_server = "/groups/pupko/natannag/consurf_n2v/huang/"
-	cmd = 'orca.exe'+' 5 ' + outputFileName + ' ' + tempNdump2File
+	cmd = ORCA_GDV_SCRIPT+' 5 ' + outputFileName + ' ' + tempNdump2File
 	print(cmd)
 	os.system(cmd)
 	
