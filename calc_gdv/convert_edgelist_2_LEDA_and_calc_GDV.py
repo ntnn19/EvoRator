@@ -74,7 +74,7 @@ def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,count_py_script_pat
     # cmd = f'python count.py {p}'
     logging.debug(cmd)
     # subprocess.check_output(cmd,shell=True)
-    subprocess.check_output(cmd,shell=True,cwd=os.getcwd())
+    subprocess.check_output(cmd,shell=True)
 
 def concatenate_GDV_tables(output_dir):
     tables=[]
