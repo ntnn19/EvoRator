@@ -899,8 +899,13 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         content_df = pd.read_csv(edgelist_file,header=None,sep='\t')
         n_lines= len(content_df)
         content = content_df.iloc[:, 0].tolist() + content_df.iloc[:, 1].tolist()
+        print()
+
         unique_content = np.unique(content)
-        print(unique_content)
+        unique_content_ints = [re.search(r"\d+",i).group() for i in unique_content]
+        sorter = np.argsort(unique_content_ints)
+        unique_content_sorted = unique_content[sorter]
+        print(unique_content_sorted)
         print(unique_content.shape)
         le.fit(unique_content)
         # content_coded = le.transform(content)
@@ -1125,4 +1130,5 @@ if __name__ == '__main__':
     from sklearn.preprocessing import LabelEncoder
 
     import shutil
+    import re
     main()
