@@ -70,7 +70,7 @@ def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,count_py_script_pat
 
     # scripts_dir = os.path.join("/groups/pupko/natannag", "consurf_n2v", "huang")
     # script_path =  os.path.join(scripts_dir,'calc_gdv', 'count.py')
-    cmd = f'python {count_py_script_path} {p}'
+    cmd = f'cd {CALC_GDV_SCRIPTS} ;python {count_py_script_path} {p}'
     # cmd = f'cd {CALC_GDV_SCRIPTS}; python count.py {p}'
     logging.debug(cmd)
     # subprocess.check_output(cmd,shell=True)
@@ -106,14 +106,9 @@ def main(edgelist,output_dir, sep,graph_rep,job_title):
 
 
 if __name__ == '__main__':
-    import time
-    import numpy as np
     import pandas as pd
     import os
-    from sklearn.preprocessing import LabelEncoder
     import subprocess
-    import re
     import networkx as nx
-    import sys
-    from EvoRator.evorator_CONSTANTS import COUNT_GDV_SCRIPT, ORCA_GDV_SCRIPT
+    from EvoRator.evorator_CONSTANTS import COUNT_GDV_SCRIPT, CALC_GDV_SCRIPTS
     main()
