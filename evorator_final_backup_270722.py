@@ -894,6 +894,17 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         if pdb_name=='':
             pdb_name = os.path.split(pdb_input)[-1].split(".")[0]
         COORD_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_xyz.txt")
+        EDGELIST_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_edgelist_draw.txt")
+        with open(edgelist_file,'r') as f:
+            le = LabelEncoder()
+            content = f.readlines()
+            content = np.array([l.strip().split() for l in content]).ravel()
+            print(content)
+            le.fit(content)
+            content_coded = le.transform(content)
+            content_coded = content_coded.reshape(len(f.readlines()),2)
+            print(content_coded)
+
         with open(COORD_FILE_FOR_DRAWING_NETWORK,'w') as f:
 
             Calpha_coordinates = backbone_coordinates[:, 2, :]
@@ -901,7 +912,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 f.write(''.join(x[1:])+'\t'+str(y[0])+'\t'+str(y[1])+'\t'+str(y[2])+'\t'+z+'\n')
 
 
-        cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {edgelist_file} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
+        cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {EDGELIST_FILE_FOR_DRAWING_NETWORK} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_3d_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
         logging.debug(f'creating network image: {cmd}')
@@ -1105,5 +1116,7 @@ if __name__ == '__main__':
     from Bio.SubsMat import MatrixInfo as matlist
     from tensorflow.python.keras.models import Model, load_model
     import sklearn
+    from sklearn.preprocessing import LabelEncoder
+
     import shutil
     main()
