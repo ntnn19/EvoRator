@@ -904,9 +904,14 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             print(unique_content)
             print(unique_content.shape)
             le.fit(unique_content)
-            content_coded = le.transform(content)
-            content_coded = content_coded.reshape(n_lines,2)
-            print(content_coded)
+            # content_coded = le.transform(content)
+
+            content = content.reshape(n_lines,2)
+            content_coded_1 = np.array(map(str, le.transform(content[:,0])))
+            content_coded_2 = np.array(map(str, le.transform(content[:,1])))
+
+            print(content_coded_1)
+            print(content_coded_2)
 
         with open(COORD_FILE_FOR_DRAWING_NETWORK,'w') as f:
 
