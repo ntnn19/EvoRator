@@ -1089,7 +1089,8 @@ if __name__ == '__main__':
     from bs4 import BeautifulSoup
     if not laptop:
         from sklearn.externals import joblib #
-    import joblib
+    else:
+        import joblib
     from Bio.SubsMat import MatrixInfo as matlist
     from tensorflow.python.keras.models import Model, load_model
     import sklearn
