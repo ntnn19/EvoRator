@@ -245,7 +245,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                         format='%(asctime)s %(levelname)-8s %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
     logging.debug(f'FINAL EVORATOR')
-    scripts_dir = os.path.join("/groups/pupko/natannag/", "EvoRator")
+    scripts_dir = CONSTS.EVORATOR_EXEC
     error_path = f'{results_dir}/error.txt'
 
     logging.debug(f'sklearn version = {sklearn.__version__}')
