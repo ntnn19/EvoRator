@@ -898,7 +898,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
             Calpha_coordinates = backbone_coordinates[:, 2, :]
             for x,y,z in zip(residue_pdb_index,Calpha_coordinates, sequence_from_pdb):
-                f.write(x+'\t'+str(y[0])+'\t'+str(y[1])+'\t'+str(y[2])+'\t'+z+'\n')
+                f.write(str(x)+'\t'+str(y[0])+'\t'+str(y[1])+'\t'+str(y[2])+'\t'+z+'\n')
 
 
         cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {edgelist_file} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
