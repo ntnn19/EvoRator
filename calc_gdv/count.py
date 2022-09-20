@@ -18,7 +18,7 @@
 
 import os
 import sys
-from EvoRator.evorator_CONSTANTS import ORCA_GDV_SCRIPT
+from EvoRator.evorator_CONSTANTS import ORCA_GDV_SCRIPT # This line was added by Natan Nagar to make GDV calculation work without installing orca
 """
 	Helper functions are defined here
 """
