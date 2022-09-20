@@ -470,6 +470,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         #     logging.debug(f'No chains found for {os.path.split(pdb_input)[-1].split(".")[0].upper()}\n\n')
         #     continue
 
+    logging.debug(f'backbone_coordinates={backbone_coordinates}')
     logging.debug(f'getting edge_list_file')
     # identifier_edgelist_calculator = pdb_name+'_0-'+pdb_chain
     # edgelist_file = extract_pairwise_distances.get_edge_list(identifier_edgelist_calculator,results_dir)
