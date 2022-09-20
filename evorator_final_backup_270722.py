@@ -907,8 +907,8 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             # content_coded = le.transform(content)
 
             content = content.reshape(n_lines,2)
-            content_coded_1 = np.array(map(str, le.transform(content[:,0])))
-            content_coded_2 = np.array(map(str, le.transform(content[:,1])))
+            content_coded_1 = le.transform(content[:,0]).astype(str)
+            content_coded_2 = le.transform(content[:,1]).astype(str)
 
             print(content_coded_1)
             print(content_coded_2)
