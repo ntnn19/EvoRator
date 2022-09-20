@@ -137,10 +137,9 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
     # calc GDV
     if not os.path.exists(os.path.join(job_result_dir, job_title + ".gdv.csv")):
         logging.debug('Running convert_edgelist_2_LEDA_and_calc_GDV')
-        calc_gdv_script = os.path.join(scripts_dir, 'calc_gdv', 'convert_edgelist_2_LEDA_and_calc_GDV.py')
-        count_script = os.path.join(scripts_dir, 'calc_gdv', 'count.py')
 
-        cmd = f'python {calc_gdv_script} {edgelist} {job_result_dir} {count_script} --job-title={job_title}'
+
+        cmd = f'python {CONSTS.CONVERT2LEDA_GDV_SCRIPT} {edgelist} {job_result_dir} --job-title={job_title}'
         logging.debug(cmd)
         subprocess.check_output(cmd, shell=True)
 
