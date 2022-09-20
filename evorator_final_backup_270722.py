@@ -898,11 +898,12 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         with open(edgelist_file,'r') as f:
             le = LabelEncoder()
             content = f.readlines()
+            n_lines= len(content)
             content = np.array([l.strip().split() for l in content]).ravel()
             print(content)
             le.fit(content)
             content_coded = le.transform(content)
-            content_coded = content_coded.reshape(len(f.readlines()),2)
+            content_coded = content_coded.reshape(n_lines//2,2)
             print(content_coded)
 
         with open(COORD_FILE_FOR_DRAWING_NETWORK,'w') as f:
