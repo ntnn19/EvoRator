@@ -895,23 +895,21 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             pdb_name = os.path.split(pdb_input)[-1].split(".")[0]
         COORD_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_xyz.txt")
         EDGELIST_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_edgelist_draw.txt")
-        with open(edgelist_file,'r') as f:
-            le = LabelEncoder()
-            content = f.readlines()
-            n_lines= len(content)
-            content = np.array([l.strip().split() for l in content]).ravel()
-            unique_content = np.unique(content)
-            print(unique_content)
-            print(unique_content.shape)
-            le.fit(unique_content)
-            # content_coded = le.transform(content)
+        le = LabelEncoder()
+        content_df = pd.read_csv(edgelist_file,header=None,sep='\t')
+        n_lines= len(content_df)
+        content = content_df.iloc[:, 0].tolist() + content_df.iloc[:, 1].tolist()
+        unique_content = np.unique(content)
+        print(unique_content)
+        print(unique_content.shape)
+        le.fit(unique_content)
+        # content_coded = le.transform(content)
 
-            content = content.reshape(n_lines,2)
-            content_coded_1 = le.transform(content[:,0]).astype(str)
-            content_coded_2 = le.transform(content[:,1]).astype(str)
+        content_coded_1 = le.transform(content_df.iloc[:, 0]).astype(str)
+        content_coded_2 = le.transform(content_df.iloc[:, 1]).astype(str)
 
-            print(content_coded_1)
-            print(content_coded_2)
+        print(content_coded_1)
+        print(content_coded_2)
 
         with open(COORD_FILE_FOR_DRAWING_NETWORK,'w') as f:
 
