@@ -1051,8 +1051,8 @@ if __name__ == '__main__':
     import sys
 
     import os
-    sys.path.append('/bioseq/evorator/auxiliaries')
-    import evorator_CONSTANTS as CONSTS  # from /effectidor/auxiliaries
+    # sys.path.append('/bioseq/evorator/auxiliaries')
+    import EvoRator.evorator_CONSTANTS as CONSTS  # from /effectidor/auxiliaries
     from time import sleep
 
     if os.path.exists('/bioseq/evorator'):  # remote run
@@ -1075,7 +1075,7 @@ if __name__ == '__main__':
     sys.path.append(path2github)
     sys.path.append(path2scannet)
     sys.path.append(path2evolutionprediction)
-    import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
+    # import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
     # from GENERAL_CONSTANTS import PDB_DIVIDED  # from /bioseq/bioSequence_scripts_and_constants/
     import extract_pairwise_distances
     from preprocessing import PDBio, PDB_processing
