@@ -909,9 +909,9 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         print(unique_content.shape)
         le.fit(unique_content_sorted)
         # content_coded = le.transform(content)
-
-        content_coded_1 = le.transform(content_df.iloc[:, 0][sorter]).astype(str)
-        content_coded_2 = le.transform(content_df.iloc[:, 1][sorter]).astype(str)
+        mapping = dict(zip(le.classes_, range(len(le.classes_))))
+        content_coded_1 = content_df.iloc[:, 0].map(mapping).astype(str)
+        content_coded_2 = content_df.iloc[:, 1].map(mapping).astype(str)
 
         print(content_coded_1)
         print(content_coded_2)
