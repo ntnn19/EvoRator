@@ -116,5 +116,4 @@ if __name__ == '__main__':
     import networkx as nx
     import sys
     from EvoRator.evorator_CONSTANTS import COUNT_GDV_SCRIPT, ORCA_GDV_SCRIPT
-    sys.path.append(ORCA_GDV_SCRIPT)
     main()
