@@ -50,7 +50,6 @@ def position2property_dict(df_merged,var):
 def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_chain, catalytic_sites, results_dir,
                      consurf_output='', job_title=''):
     ''' This script extract features from a given PDB_FILE , PDB_CHAIN pair and an unweighted EDGELIST file.
-    The unweighted EDGELIST that represent the 3D structure of the input protein can be downloaded from https://bioinf.iiit.ac.in/NAPS)
     Returns n x m matrix where n is the number of positions in the PDB_FILE and m is the number of features'''
 
     job_result_dir = results_dir
