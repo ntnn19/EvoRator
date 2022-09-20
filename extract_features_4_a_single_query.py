@@ -1,18 +1,3 @@
-import time
-import pandas as pd
-import numpy as np
-import os
-import subprocess
-from collections import Counter
-from Bio.SeqUtils.ProtParam import ProteinAnalysis
-from Bio.PDB import PDBParser
-from Bio.PDB.DSSP import DSSP
-from sklearn.preprocessing import LabelEncoder
-import seaborn as sns
-import matplotlib.pyplot as plt
-from functools import reduce
-import logging
-import itertools
 import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
 import string
 import itertools
@@ -21,13 +6,7 @@ import pandas as pd
 import numpy as np
 import os
 import subprocess
-from collections import Counter
-from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from Bio.PDB import PDBParser
-from Bio.PDB.DSSP import DSSP
-from sklearn.preprocessing import LabelEncoder
-import seaborn as sns
-import matplotlib.pyplot as plt
 from functools import reduce
 import logging
 import sys
