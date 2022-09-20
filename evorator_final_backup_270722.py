@@ -304,7 +304,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             try:
                 print(301)
 
-                pdb_file_single_chain_path, chain_ids, sequence, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine,results_dir)
+                pdb_file_single_chain_path, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine,results_dir)
 
                 print(pdb_file_single_chain_path)
         # edgelist_path = get_edge_list(identifier_for_scannet_obtain_pdb_routine,chain_ids,backbone_coordinates,residue_pdb_index,results_dir)
@@ -367,6 +367,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             chain_ids = [(0, pdb_chain)]
             PDBio.extract_chains(final_pdb_file_path,chain_ids , final_pdb_file_path )
             chains = PDBio.load_chains(file=final_pdb_file_path, chain_ids=chain_ids)[1]
+            sequence_from_pdb = PDB_processing.process_chain(chains)[0]
 
             backbone_coordinates = PDB_processing.process_chain(chains)[2]
             residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
@@ -889,9 +890,18 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     final_df.to_csv(done_path)
     if os.path.exists(done_path):
         logging.debug(f'768')
+
         if pdb_name=='':
             pdb_name = os.path.split(pdb_input)[-1].split(".")[0]
-        cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
+        COORD_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_xyz.txt")
+        with open(COORD_FILE_FOR_DRAWING_NETWORK,'w') as f:
+
+            Calpha_coordinates = backbone_coordinates[:, 2, :]
+            for x,y,z in zip(residue_pdb_index,Calpha_coordinates, sequence_from_pdb):
+                f.write(x+'\t'+str(y[0])+'\t'+str(y[1])+'\t'+str(y[2])+'\t'+z+'\n')
+
+
+        cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {edgelist_file} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_3d_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
         logging.debug(f'creating network image: {cmd}')
