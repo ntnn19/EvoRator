@@ -902,12 +902,12 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         print()
 
         unique_content = np.unique(content)
-        unique_content_ints = [re.search(r"\d+",i).group() for i in unique_content]
+        unique_content_ints = [int(re.search(r"\d+",i).group()) for i in unique_content]
         sorter = np.argsort(unique_content_ints)
         unique_content_sorted = unique_content[sorter]
         print(unique_content_sorted)
         print(unique_content.shape)
-        le.fit(unique_content)
+        le.fit(unique_content_sorted)
         # content_coded = le.transform(content)
 
         content_coded_1 = le.transform(content_df.iloc[:, 0]).astype(str)
