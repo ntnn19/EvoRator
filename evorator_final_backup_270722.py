@@ -220,11 +220,13 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     print('semek')
     file_path = os.path.realpath(__file__)
     print(f'Hi, {file_path}')  # Press Ctrl+F8 to toggle the breakpoint.
-
+    if pdb_name:
+        assert re.search(r'^[0-9][A-Za-z0-9]{3}$', pdb_name), "Illegal PDB ID"
     # try:
     if not html_path:
         print('semek')
         if pdb_name:
+
             subdir_name = pdb_name + '_' + pdb_chain
         else:
             subdir_name = os.path.split(pdb_file)[-1].split(".")[0] + '_' + pdb_chain
@@ -395,7 +397,8 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         pdb_input = pdb_file
         final_pdb_file_path = os.path.join(results_dir,subdir_name+'.pdb')
         print(final_pdb_file_path)
-        chains = PDBio.load_chains(file=pdb_input, chain_ids=[(0, pdb_chain)])[1]
+        chain_ids = [(0, pdb_chain)]
+        chains = PDBio.load_chains(file=pdb_input, chain_ids=chain_ids)[1]
         sequence_from_pdb = PDB_processing.process_chain(chains)[0]
         backbone_coordinates = PDB_processing.process_chain(chains)[2]
         residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
