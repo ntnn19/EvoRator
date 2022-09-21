@@ -1047,7 +1047,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                           task='PERfIFR', done_figure_path=done_figure_path)
         else:
             logging.debug(f'779')
-            finalize_html(html_path, error_path, run_number, job_title,results_dir,consurf_output)
+            logging.debug('DONE')
+            if html_path:
+                finalize_html(html_path, error_path, run_number, job_title,results_dir,consurf_output)
+            return
 
 # except Exception as e:
     if html_path:
