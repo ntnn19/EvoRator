@@ -403,6 +403,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         backbone_coordinates = PDB_processing.process_chain(chains)[2]
         residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
         PDBio.extract_chains(pdb_input, [(0, pdb_chain)], final_pdb_file_path)
+        shutil.copy(pdb_input, results_dir)
         print(final_pdb_file_path)
         print(382)
         try:
