@@ -922,6 +922,12 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             for x,y,z in zip(residue_pdb_index,Calpha_coordinates, sequence_from_pdb):
                 f.write(''.join(x[1:])+'\t'+str(y[0])+'\t'+str(y[1])+'\t'+str(y[2])+'\t'+z+'\n')
 
+        with open(EDGELIST_FILE_FOR_DRAWING_NETWORK,'w') as f:
+
+
+            for x,y in zip(content_coded_1,content_coded_2):
+                print(str(x)+'\t'+str(y)+'\n')
+                f.write(str(x)+'\t'+str(y)+'\n')
 
         cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {EDGELIST_FILE_FOR_DRAWING_NETWORK} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
