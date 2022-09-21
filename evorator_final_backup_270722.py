@@ -897,7 +897,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         EDGELIST_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_edgelist_draw.txt")
         le = LabelEncoder()
         content_df = pd.read_csv(edgelist_file,header=None,sep='\t')
-        n_lines= len(content_df)
         content = content_df.iloc[:, 0].tolist() + content_df.iloc[:, 1].tolist()
         print()
 
