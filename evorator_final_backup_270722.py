@@ -220,6 +220,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     print('semek')
     file_path = os.path.realpath(__file__)
     print(f'Hi, {file_path}')  # Press Ctrl+F8 to toggle the breakpoint.
+
     # try:
     if not html_path:
         print('semek')
@@ -297,6 +298,9 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     identifier_for_scannet_obtain_pdb_routine = pdb_name + "_0-" + pdb_chain
 
     if pdb_name:
+
+        assert re.search(r'^[0-9][A-Za-z0-9]{3}$',pdb_name), "Illegal PDB ID"
+
         pdb_file_name = "pdb" + pdb_name.lower() + ".ent.gz"
         local_gz_file_path = os.path.join(CONSTS.PDB_DIVIDED, pdb_name.lower()[1:3], pdb_file_name)  # pdb file absolute
         final_pdb_file_path = os.path.join(results_dir, pdb_name.upper() + ".pdb")
