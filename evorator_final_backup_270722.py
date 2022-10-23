@@ -963,20 +963,21 @@ if __name__ == '__main__':
     if os.path.exists('/bioseq/evorator'):  # remote run
         sys.path.append('/bioseq/evorator/auxiliaries/')
         sys.path.append('/bioseq/bioSequence_scripts_and_constants/')
-        sys.path.append('/groups/pupko/natannag/consurf_n2v/huang')
-        sys.path.append('/groups/pupko/natannag/ScanNet_dev/')
-        sys.path.append('/groups/pupko/natannag/EvolutionPrediction/')
+        # sys.path.append('/groups/pupko/natannag/natan_git/consurf_n2v/huang')
+        sys.path.append('/groups/pupko/natannag/natan_git/ScanNet_dev/')
+        sys.path.append('/groups/pupko/natannag/natan_git/EvolutionPrediction/')
         #
     # C:\Users\natan\Documents\EvolutionPrediction\extract_pairwise_distances.py
-    laptop = False if os.path.exists("/groups/pupko/natannag") else True
+    laptop = False if os.path.exists("/groups/pupko/natannag/natan_git") else True
     if laptop:
         path2github = "../"
         path2scannet = "C:/Users/natan/Documents/ScanNet_dev/"
         path2evolutionprediction = "C:/Users/natan/Documents/EvolutionPrediction/"
     else:
-        path2github = "/groups/pupko/natannag"
-        path2scannet = '/groups/pupko/natannag/ScanNet_dev/'
-        path2evolutionprediction = '/groups/pupko/natannag/EvolutionPrediction/'
+        path2github = "/groups/pupko/natannag/natan_git"
+        path2scannet = '/groups/pupko/natannag/natan_git/ScanNet_dev/'
+        path2evolutionprediction = '/groups/pupko/natannag/natan_git/EvolutionPrediction/'
+
     sys.path.append(path2github)
     sys.path.append(path2scannet)
     sys.path.append(path2evolutionprediction)
