@@ -124,8 +124,9 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
             cmd = f'python {calc_networkx_script} {edgelist} {job_result_dir} --job-title={job_title}'
             logging.debug(cmd)
             subprocess.check_output(cmd, shell=True)
-    except:
+    except Exception as e:
         logging.debug("Edgelist file was not found")
+        print(e)
         raise FileNotFoundError
 
     # calc GDV

@@ -367,7 +367,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     # logging.debug(f'chains={chain_ids}')
     # logging.debug(f'getting edge_list_file')
     logging.debug(f'getting edge_list_file')
-    edgelist_file = extract_pairwise_distances.get_edge_list(identifier_for_scannet_obtain_pdb_routine,chain_ids,backbone_coordinates,residue_pdb_index,results_dir)
+    edgelist_file = extract_pairwise_distances.get_edge_list(identifier_for_scannet_obtain_pdb_routine,backbone_coordinates,residue_pdb_index,results_dir)
     logging.debug(f'{edgelist_file}')
 
 
