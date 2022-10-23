@@ -775,7 +775,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
         if pdb_name=='':
             pdb_name = os.path.split(pdb_input)[-1].split(".")[0]
-        COORD_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_xyz.txt")
+        COORD_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_coordinates.txt")
         EDGELIST_FILE_FOR_DRAWING_NETWORK = os.path.join(results_dir,pdb_name.upper() + "_" + pdb_chain + "_edgelist_draw.txt")
         le = LabelEncoder()
         content_df = pd.read_csv(edgelist_file,header=None,sep='\t')
@@ -992,7 +992,6 @@ if __name__ == '__main__':
     import pandas as pd
     import numpy as np
     import subprocess
-    from Bio.PDB import PDBParser, PDBIO
 
     import extract_features_4_a_single_query
     import logging
