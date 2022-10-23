@@ -242,7 +242,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
         os.makedirs(results_dir, exist_ok=True)
 
-    print('semek')
     logging.basicConfig(filename=results_dir + '/' + 'feature_extraction_and_prediction.log',
                         level=logging.DEBUG,
                         format='%(asctime)s %(levelname)-8s %(message)s',
@@ -297,108 +296,59 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
 
     logging.debug(f'174')
-    identifier_for_scannet_obtain_pdb_routine = pdb_name + "_0-" + pdb_chain
 
-    if pdb_name:
 
-        assert re.search(r'^[0-9][A-Za-z0-9]{3}$',pdb_name), "Illegal PDB ID"
+    if pdb_name: # user provided pdb_id
 
-        pdb_file_name = "pdb" + pdb_name.lower() + ".ent.gz"
-        local_gz_file_path = os.path.join(CONSTS.PDB_DIVIDED, pdb_name.lower()[1:3], pdb_file_name)  # pdb file absolute
-        final_pdb_file_path = os.path.join(results_dir, pdb_name.upper() + ".pdb")
-        if not os.path.exists(local_gz_file_path):
-            try:
-                print(301)
+        assert re.search(r'^[0-9][A-Za-z0-9]{3}$',pdb_name), f"Illegal PDB ID {pdb_name}"
 
-                pdb_file_single_chain_path, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine,results_dir)
-
-                print(pdb_file_single_chain_path)
-        # edgelist_path = get_edge_list(identifier_for_scannet_obtain_pdb_routine,chain_ids,backbone_coordinates,residue_pdb_index,results_dir)
-        # print(edgelist_path)
-        # print(edgelist_path)
-        # pdb_file_name = "pdb"+pdb_name.lower()+".ent.gz"
-        # local_gz_file_path =  os.path.join(PDB_DIVIDED,pdb_name.lower()[1:3],pdb_file_name)  # pdb file absolute
-        # final_pdb_file_path = os.path.join(results_dir,pdb_name.upper()+".pdb")
-
-        # if not os.path.exists(local_gz_file_path):
-        #     try:
-        #         pdb_query = f'wget -P {results_dir} ftp://ftp.wwpdb.org/pub/pdb/data/structures/all/pdb/{pdb_file_name}'
-        #         subprocess.check_output(pdb_query,shell=True)
-        #         downloaded_gz_file_path = os.path.join(results_dir, pdb_file_name)
-        #         local_gz_file_path = downloaded_gz_file_path
-        #         subprocess.check_output(f'gunzip {local_gz_file_path}', shell=True)
-        #         local_pdb_file_path = os.path.join(*os.path.split(local_gz_file_path)[:-1],
-        #                                            ".".join(os.path.split(local_gz_file_path)[-1].split(".")[:2]))
-        #     except Exception as e:
-        #         logging.debug(f'SUCCEEDED = False')
-        #         logging.debug(e)
-        #         if html_path:
-        #             edit_failure_html(CONSTS,
-        #                               "The PDB ID was not found",
-        #                               html_path, run_number)
-        #             add_closing_html_tags(html_path, CONSTS, run_number)
-
+        # if pdb_chain == 'all':
+        #     identifier_for_scannet_obtain_pdb_routine = pdb_name
         # else:
-        #     subprocess.check_output(f'cp {local_gz_file_path} {results_dir}', shell=True)
-        #     pdb_file_unzipped_path = os.path.join(results_dir, pdb_file_name)
-        #     local_pdb_file_path = os.path.join(results_dir,".".join(pdb_file_name.split(".")[:2]))
-        #     if not os.path.exists(local_pdb_file_path): # file exists
-        #         subprocess.check_output(f'gunzip {pdb_file_unzipped_path}', shell=True)
-        #
-        # subprocess.check_output(f'cp {local_pdb_file_path} {final_pdb_file_path}',shell=True)
-                local_pdb_file_path = pdb_file_single_chain_path
+        identifier_for_scannet_obtain_pdb_routine = pdb_name + "_0-" + pdb_chain
+        final_pdb_file_path = os.path.join(results_dir, pdb_name.upper() + ".pdb")
+        try:
 
-                shutil.copyfile(local_pdb_file_path, final_pdb_file_path)
+            # pdb_file_single_chain_path, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine,results_dir)
+            final_pdb_file, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine, results_dir)
 
-                print(340,local_pdb_file_path)
+            local_pdb_file_path = final_pdb_file
 
-            except Exception as e:
-                logging.debug(f'SUCCEEDED = False')
-                logging.debug(e)
-                if html_path:
-                    edit_failure_html(CONSTS,
-                                      "The PDB ID was not found",
-                                      html_path, run_number)
-                    add_closing_html_tags(html_path, CONSTS, run_number)
-        else:
-            logging.debug(f'found in local db')
-            logging.debug(f'copy cmd = cp {local_gz_file_path} {results_dir}')
-            subprocess.check_output(f'cp {local_gz_file_path} {results_dir}', shell=True)
-            pdb_file_unzipped_path = os.path.join(results_dir, pdb_file_name)
-            local_pdb_file_path = os.path.join(results_dir, ".".join(pdb_file_name.split(".")[:2]))
-            if not os.path.exists(final_pdb_file_path):  # file exists
-                logging.debug(f'gunzip cmd = cp {local_gz_file_path} {results_dir}')
-                subprocess.check_output(f'gunzip {pdb_file_unzipped_path}', shell=True)
-                shutil.copyfile(local_pdb_file_path, final_pdb_file_path)
-            chain_ids = [(0, pdb_chain)]
-            PDBio.extract_chains(final_pdb_file_path,chain_ids , final_pdb_file_path )
-            chains = PDBio.load_chains(file=final_pdb_file_path, chain_ids=chain_ids)[1]
-            sequence_from_pdb = PDB_processing.process_chain(chains)[0]
-
-            backbone_coordinates = PDB_processing.process_chain(chains)[2]
-            residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
-        pdb_input = final_pdb_file_path
+            shutil.copyfile(local_pdb_file_path, final_pdb_file_path)
+            pdb_input = final_pdb_file_path
 
 
-        # subprocess.check_output(f'cp {local_pdb_file_path} {final_pdb_file_path}', shell=True)
+        except Exception as e:
+            logging.debug(f'SUCCEEDED = False')
+            logging.debug(e)
+            if html_path:
+                edit_failure_html(CONSTS,
+                                  "The PDB ID was not found",
+                                  html_path, run_number)
+                add_closing_html_tags(html_path, CONSTS, run_number)
 
-        # PDBio.extract_chains('dowbloaded', [(0,pdb_chain)], final_pdb_file_path)
-        # pdb_input = final_pdb_file_path
-        # pdb_input = final_pdb_file_path
-        # print(356)
-        # _, chain_obj = PDBio.load_chains(file=pdb_input, chain_ids= [ (0, pdb_chain)])
-        # print(356)
-        # pdb_file_single_chain_path, chain_ids = PDBio.extract_chains(‘my_file.cif’,  [ (0, ‘A’)] , ‘final_file.pdb’ )
-        # pdb_file_single_chain_path, chain_ids, sequence, residue_pdb_index, backbone_coordinates = PDB_processing.process_chain(
-        #     chain_obj)
 
-    else:
-        print(results_dir)
+    else: # user provided coordinate file
         pdb_input = pdb_file
+        identifier_for_scannet_obtain_pdb_routine = job_title + "_0-" + pdb_chain
+        print(pdb_input)
         final_pdb_file_path = os.path.join(results_dir,subdir_name+'.pdb')
         print(final_pdb_file_path)
-        chain_ids = [(0, pdb_chain)]
-        chains = PDBio.load_chains(file=pdb_input, chain_ids=chain_ids)[1]
+        # if pdb_chain =='all':
+        #     chain_ids = 'all'
+        # else:
+        #     chain_ids = [(0, pdb_chain)]
+        try:
+            chains = PDBio.load_chains(file=pdb_input, chain_ids='all')[1]
+            chain_ids = [(0, i.id) for i in chains]
+
+        except Exception as e:
+            logging.debug(e)
+            print(e)
+            pdb_input = pdb_input.replace('.pdb','.cif')
+            chain_ids = [(0, pdb_chain)] # chains of large complexes are individually processed
+            chains = PDBio.load_chains(file=pdb_input, chain_ids=chain_ids)[1]
+
         sequence_from_pdb = PDB_processing.process_chain(chains)[0]
         backbone_coordinates = PDB_processing.process_chain(chains)[2]
         residue_pdb_index = PDB_processing.get_PDB_indices(chains, return_model=True, return_chain=True)
@@ -410,103 +360,22 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             os.path.exists(pdb_input)
         except:
             raise FileNotFoundError
-        try:
-        #    cmd = f'module load python/python-anaconda3.7-itaym; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
-        #     cmd = f'module load python/python-anaconda3.7-itaym; source activate /groups/pupko/natannag/conda/envs/NatanEnv; python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
-            cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python /bioseq/evorator/auxiliaries/pdb_validate.py {pdb_input} > {results_dir}/pdb_val.output'
-            subprocess.check_output(cmd, shell=True)
-            pdb_val_out =  os.path.join(results_dir,'pdb_val.output')
-            pdb_val_out_f = open(pdb_val_out,'r')
-            content= pdb_val_out_f.read()
-            pdb_val_out_f.close()
-            if "OK" not in content:
-                logging.debug('unusual pdb file')
 
-        except:
-            logging.debug(f'pdb_val.py failed')
-    # except Exception as e:
-    #     logging.debug(f'SUCCEEDED = False')
-    #     logging.debug(e)
-    #     pdb_val_out =  os.path.join(results_dir,'pdb_val.output')
-    #     pdb_val_out_f = open(pdb_val_out,'r')
-    #     content= pdb_val_out_f.read()
-    #     pdb_val_out_f.close()
-    #     if "OK" not in content:
-    #         edit_failure_html(CONSTS,
-    #                           "PDB File was not found or is not in the correct <a href=http://www.wwpdb.org/documentation/file-format-content/format33/sect9.html#ATOM target=_blank>format</a>.",
-    #                           html_path, run_number)
-    #         add_closing_html_tags(html_path, CONSTS, run_number)
-
-
-        # get NAPS  input
-
-    # io = PDBIO()
-    # pdb_parser = PDBParser().get_structure(os.path.split(pdb_input)[-1].split(".")[0].upper(), pdb_input)
-    # chain_list = [c.get_id() for c in pdb_parser.get_chains()]
-    # logging.debug(f'chain_list:{chain_list}')
-    #
-    # pdb_chain = pdb_chain.upper()
-    # for c in pdb_parser.get_chains():
-    #     logging.debug(f'{c.get_id()}\n\n')
-    #     if c.get_id() == pdb_chain:
-    #
-    #         io.set_structure(c)
-    #         logging.debug(f'{pdb_parser.get_full_id()}\n\n')
-    #         pdb_file_single_chain_path =os.path.join(results_dir,str(pdb_parser.get_id()) + "_" + c.get_id() + ".pdb")
-            #pdb_file_single_chain_path =os.path.join(results_dir,str(pdb_parser.get_id()).upper() + ".pdb")
-            # try:
-            #     io.save(pdb_file_single_chain_path)
-            # except:
-            #     subprocess.check_output(f'cp {pdb_input} {pdb_file_single_chain_path}',shell=True)
-
-            # pdb_parser = PDBParser().get_structure(os.path.split(pdb_input)[-1].split(".")[0].upper(), pdb_input)
-            # f = open(pdb_input,'r')
-            # line_to_take= [line for line in f.readlines() if line.startswith("CRYST1") or line.startswith("SITE     ") ]
-            # f.close()
-            #
-            # line_to_take= "\n".join(line_to_take)
-            #
-            # f = open(pdb_file_single_chain_path,'r')
-            # f_content = f.read()
-            # f.close()
-            #
-            # f= open(pdb_file_single_chain_path,'w')
-            # f.write(line_to_take+f_content)
-            # f.close()
-            #
-            # break
-        # else:
-        #     logging.debug(f'No chains found for {os.path.split(pdb_input)[-1].split(".")[0].upper()}\n\n')
-        #     continue
-
-    logging.debug(f'backbone_coordinates={backbone_coordinates}')
+    # logging.debug(f'backbone_coordinates={backbone_coordinates.shape}')
+    # logging.debug(f'residue_pdb_index={residue_pdb_index}')
+    # logging.debug(f'residue_pdb_index={residue_pdb_index.shape}')
+    # logging.debug(f'chains={chain_ids}')
+    # logging.debug(f'getting edge_list_file')
     logging.debug(f'getting edge_list_file')
-    # identifier_edgelist_calculator = pdb_name+'_0-'+pdb_chain
-    # edgelist_file = extract_pairwise_distances.get_edge_list(identifier_edgelist_calculator,results_dir)
-    # logging.debug(f'edge_list_file:{edgelist_file}')
-    # Compute_bulk_input =os.path.join(results_dir,'Compute_bulk_input.txt')
-    #Compute_bulk_output =os.path.join(results_dir,'Compute_bulk_output.zip')
-    # f = open(Compute_bulk_input,'w')
-    # f.write(" ".join(os.path.split(pdb_file_single_chain_path)[-1].split(".")[0].split("_")))
-    # f.close()
-    # subprocess.check_output(f'module list 2> {os.path.join(results_dir, "test.txt")}', shell=True)
-    # logging.debug(f'{results_dir}')
-#    cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"Compute_bulk.py")} {Compute_bulk_input} edgelist ca unweighted 7 0 1 {results_dir}'
-#     cmd = f'module load python/python-anaconda3.7-itaym;source activate /groups/pupko/natannag/conda/envs/NatanEnv; python {os.path.join(scripts_dir,"Compute_bulk.py")} {Compute_bulk_input} edgelist ca unweighted 7 0 1 {results_dir}'
-#     cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"Compute_bulk.py")} {Compute_bulk_input} edgelist ca unweighted 7 0 1 {results_dir}'
-    # cmd = f'python {os.path.join(scripts_dir,"Compute_bulk.py")} {Compute_bulk_input} edgelist ca unweighted 7 0 1 {results_dir}'
-    # logging.debug(f'{cmd}')
-    # subprocess.check_output(cmd,shell=True)
-    #subprocess.check_output(f'unzip {Compute_bulk_output}',shell=True)
     edgelist_file = extract_pairwise_distances.get_edge_list(identifier_for_scannet_obtain_pdb_routine,chain_ids,backbone_coordinates,residue_pdb_index,results_dir)
     logging.debug(f'{edgelist_file}')
 
 
     # Feature extraction
-    done_path = os.path.join(results_dir, job_title + "_features_and_predictions.csv")
-    done_path_neigh = os.path.join(results_dir, job_title + "_neighbor_map.csv")
-    done_path_features_only = os.path.join(results_dir, job_title + "_features.csv")
-    done_figure_path = os.path.join(results_dir, job_title + "_regression.png")
+    done_path = os.path.join(results_dir, job_title + f"{pdb_chain}_features_and_predictions.csv")
+    done_path_neigh = os.path.join(results_dir, job_title + f"{pdb_chain}_neighbor_map.csv")
+    done_path_features_only = os.path.join(results_dir, job_title + f"{pdb_chain}_features.csv")
+    done_figure_path = os.path.join(results_dir, job_title + f"{pdb_chain}_regression.png")
     df_merged = extract_features_4_a_single_query.extract_features(edgelist_file, pdb_input,pdb_input, pdb_chain, catalytic_sites,results_dir, consurf_output=consurf_output,job_title=job_title)
     logging.debug(f'raw feature table {df_merged.columns.tolist()}')
     if not predict:
@@ -520,6 +389,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         df_merged['structure'] = df_merged['structure'].str.replace('missing', 'loop')
         df_merged['catalysis'] = df_merged['catalysis'].str.replace('None catalytic', 'Non catalytic')
         df_merged.to_csv(done_path_features_only,index=False)
+
         return
 
 
@@ -716,6 +586,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
             df_2_write=final_df[['pdb_position', *features4consurf_2_write, 'consurf_score',
                       'predicted_score_4_missing_in_consurf']].drop(columns=['total_non_interfacing_neigh'])
             df_2_write.to_csv(done_path, index=False)
+            try:
+                subprocess.check_output(f'cp {done_path} {"".join(os.path.split(results_dir)[:-1])}')
+            except Exception as e:
+                print(e)
             final_df = final_df.rename(columns=names_d_inv)
         elif prediction_task == 'PERfIFR':
             final_df['predicted_score'] = final_df['cv_predicted_score']
@@ -1031,6 +905,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
                     df_2_write = final_df[['pdb_position', *all_features_pssm, 'predicted_score',*pssm_pred_cols]]
                     df_2_write.to_csv(done_path, index=False)
+                    try:
+                        subprocess.check_output(f'cp {done_path} {"".join(os.path.split(results_dir)[:-1])}')
+                    except Exception as e:
+                        print(e)
                     finalize_html(html_path, error_path, run_number, job_title,results_dir,consurf_output)
         elif prediction_task == 'PERfIFR':
             # logging.debug(f'{final_df.columns.tolist()}')
@@ -1040,7 +918,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                  'predicted_score_4_missing_in_consurf', 'predicted_score']].drop(
                 columns=['total_non_interfacing_neigh'])
             df_2_write.to_csv(done_path, index=False)
-
+            try:
+                subprocess.check_output(f'cp {done_path} {"".join(os.path.split(results_dir)[:-1])}')
+            except Exception as e:
+                print(e)
             plt.errorbar(y=final_df["predicted_score"],
                          x=final_df["consurf_score"],
                          xerr=final_df[['lower_e', 'upper_e']].T.values.tolist(),
@@ -1060,27 +941,13 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 finalize_html(html_path, error_path, run_number, job_title,results_dir,consurf_output)
             return
 
-# except Exception as e:
+
     if html_path:
         edit_failure_html(CONSTS,
                           "",
                           html_path, run_number)
         add_closing_html_tags(html_path, CONSTS, run_number)
         return
-
-        # except Exception as e:
-        #     logging.debug(f'SUCCEEDED = False')
-        #     logging.debug(e)
-        #     logging.debug(f"""results_dir: {results_dir}\n
-        #                 pdb_file:{pdb_input}\npdb_chain:{pdb_chain}""")
-        #     if html_path:
-        #         # error_msg = e.args[-1]
-        #         error_msg = e.args
-        #         if os.path.exists(error_path):
-        #             with open(error_path) as f:
-        #                 error_msg = f.read()
-        #         edit_failure_html(CONSTS, error_msg, html_path, run_number)
-        #         add_closing_html_tags(html_path, CONSTS, run_number)
 
 
 
