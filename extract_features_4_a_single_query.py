@@ -84,7 +84,8 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
             cmd = f'module unload python/python-anaconda3.7-itaym;module load dssp-4.0; module load boost/boost-1-75-0; module load gcc/gcc-8.2.0; mkdssp -i {pdb_file_complete} --output-format=dssp -o {dssp_output}'
             logging.debug(cmd)
             subprocess.check_output(cmd, shell=True)
-    except:
+    except Exception as e:
+        print(e)
         logging.debug("DSSP failed")
         pass
 
@@ -99,7 +100,9 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
             logging.debug(cmd)
             subprocess.check_output(cmd, shell=True)
 
-    except:
+
+    except Exception as e:
+        print(e)
         logging.debug("DSSP output file was not found")
         pass
         # raise FileNotFoundError
@@ -113,8 +116,10 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
             cmd = f'python {calc_wcn_script} {pdb_file_complete} -d {job_result_dir}'
             logging.debug(cmd)
             subprocess.check_output(cmd, shell=True)
-    except:
+    except Exception as e:
         logging.debug("WCN cannot be calculated")
+        print(e)
+
         pass
     # calc NETWORKX FEATURES
     try:
