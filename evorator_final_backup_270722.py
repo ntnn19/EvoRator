@@ -373,7 +373,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
     # Feature extraction
     done_path = os.path.join(results_dir, job_title + f"{pdb_chain}_features_and_predictions.csv")
-    subprocess.check_output(f'echo "{done_path}"  > {os.path.join("".join(os.path.split(results_dir)[:-1]), "output_file_paths.txt")}')
+    subprocess.check_output(f'echo "{done_path}"  > {os.path.join("".join(os.path.split(results_dir)[:-1]), "evorator_output_path.txt")}')
     done_path_neigh = os.path.join(results_dir, job_title + f"{pdb_chain}_neighbor_map.csv")
     done_path_features_only = os.path.join(results_dir, job_title + f"{pdb_chain}_features.csv")
     done_figure_path = os.path.join(results_dir, job_title + f"{pdb_chain}_regression.png")
