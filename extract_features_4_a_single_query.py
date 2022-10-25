@@ -138,10 +138,15 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
     if not os.path.exists(os.path.join(job_result_dir, job_title + ".gdv.csv")):
         logging.debug('Running convert_edgelist_2_LEDA_and_calc_GDV')
 
-
         cmd = f'python {CONSTS.CONVERT2LEDA_GDV_SCRIPT} {edgelist} {job_result_dir} --job-title={job_title}'
         logging.debug(cmd)
-        subprocess.check_output(cmd, shell=True)
+        try:
+            subprocess.check_output(cmd, shell=True)
+        except Exception as e:
+            print('calc gdv exception')
+            print(e)
+            logging.debug(e)
+
 
     # get disordered sites, binding sites, and catalytic sites
     if not os.path.exists(os.path.join(job_result_dir, job_title + ".disorder.txt")) or not os.path.exists(
