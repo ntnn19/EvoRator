@@ -299,7 +299,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
 
     if pdb_name: # user provided pdb_id
-
+        print("# user provided pdb_id")
         assert re.search(r'^[0-9][A-Za-z0-9]{3}$',pdb_name), f"Illegal PDB ID {pdb_name}"
 
         # if pdb_chain == 'all':
@@ -307,6 +307,16 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         # else:
         identifier_for_scannet_obtain_pdb_routine = pdb_name + "_0-" + pdb_chain
         final_pdb_file_path = os.path.join(results_dir, pdb_name.upper() + ".pdb")
+
+        # pdb_file_single_chain_path, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine,results_dir)
+        final_pdb_file, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(
+            identifier_for_scannet_obtain_pdb_routine, results_dir)
+
+        local_pdb_file_path = final_pdb_file
+
+        shutil.copyfile(local_pdb_file_path, final_pdb_file_path)
+        pdb_input = final_pdb_file_path
+
         try:
 
             # pdb_file_single_chain_path, chain_ids, sequence_from_pdb, residue_pdb_index, backbone_coordinates = obtain_pdb.obtain_pdb(identifier_for_scannet_obtain_pdb_routine,results_dir)
@@ -329,6 +339,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
 
     else: # user provided coordinate file
+        print("user provided coordinate file")
         pdb_input = pdb_file
         identifier_for_scannet_obtain_pdb_routine = job_title + "_0-" + pdb_chain
         print(pdb_input)
@@ -958,7 +969,7 @@ if __name__ == '__main__':
 
     import os
     # sys.path.append('/bioseq/evorator/auxiliaries')
-    import EvoRator.evorator_CONSTANTS as CONSTS  # from /effectidor/auxiliaries
+    import evorator_CONSTANTS as CONSTS  # from /effectidor/auxiliaries
     from time import sleep
 
     if os.path.exists('/bioseq/evorator'):  # remote run
@@ -970,16 +981,9 @@ if __name__ == '__main__':
         #
     # C:\Users\natan\Documents\EvolutionPrediction\extract_pairwise_distances.py
     laptop = False if os.path.exists("/groups/pupko/natannag/natan_git") else True
-    if laptop:
-        path2github = "../"
-        path2scannet = "C:/Users/natan/Documents/ScanNet_dev/"
-        path2evolutionprediction = "C:/Users/natan/Documents/EvolutionPrediction/"
-    else:
-        path2github = "/groups/pupko/natannag/natan_git"
-        path2scannet = '/groups/pupko/natannag/natan_git/ScanNet_dev/'
-        path2evolutionprediction = '/groups/pupko/natannag/natan_git/EvolutionPrediction/'
+    path2scannet = 'ScanNet_dev/'
+    path2evolutionprediction = 'EvolutionPrediction/'
 
-    sys.path.append(path2github)
     sys.path.append(path2scannet)
     sys.path.append(path2evolutionprediction)
     # import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
