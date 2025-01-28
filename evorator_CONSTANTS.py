@@ -33,7 +33,7 @@ EVORATOR_RESULTS_URL = os.path.join(WEBSERVER_URL, 'results')
 EVORATOR_HTML_DIR = '/data/www/html/evorator'
 
 # EVORATOR_EXEC = '/groups/pupko/natannag/natan_git/EvoRator'
-EVORATOR_EXEC = r"C:\Users\natan\Documents\EvoRator"
+EVORATOR_EXEC = os.getcwd()
 
 CATALYTIC_RES_DB = os.path.join(EVORATOR_EXEC,'data', 'catalytic_sites.csv')
 #TRAINED_SVR = os.path.join(EVORATOR_EXEC, 'regression_results','trained_classifier_keep','estimator_4_ORFan_analysis_keep.pkl')

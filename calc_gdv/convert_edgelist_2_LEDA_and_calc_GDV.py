@@ -71,7 +71,6 @@ def convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,count_py_script_pat
     # scripts_dir = os.path.join("/groups/pupko/natannag", "consurf_n2v", "huang")
     # script_path =  os.path.join(scripts_dir,'calc_gdv', 'count.py')
     cmd = f'python {count_py_script_path} {p}'
-    # cmd = f'cd {CALC_GDV_SCRIPTS}; python count.py {p}'
     logging.debug(cmd)
     # subprocess.check_output(cmd,shell=True)
     subprocess.check_output(cmd,shell=True)
@@ -99,6 +98,7 @@ def concatenate_GDV_tables(output_dir):
 @click.option('--graph-rep', type=click.Choice(['NAPS', 'PPI'], case_sensitive=True),
               default='NAPS',show_default=True,help='NAPS/PPI if graph represents protein structure or protein interaction network, respectively')
 def main(edgelist,output_dir, sep,graph_rep,job_title):
+    COUNT_GDV_SCRIPT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'count.py')
     convert_edgelist_2_LEDA_and_calc_GDV(edgelist,output_dir,COUNT_GDV_SCRIPT,sep,graph_rep,suffix=job_title)
     final_GDV_table= concatenate_GDV_tables(output_dir)
     final_GDV_table.to_csv(os.path.join(output_dir,job_title+'.gdv.csv'),index=False)
@@ -110,5 +110,4 @@ if __name__ == '__main__':
     import os
     import subprocess
     import networkx as nx
-    from EvoRator.evorator_CONSTANTS import COUNT_GDV_SCRIPT, CALC_GDV_SCRIPTS
     main()

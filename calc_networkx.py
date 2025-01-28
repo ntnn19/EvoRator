@@ -38,6 +38,7 @@ def get_neighbors_4_each_node(G,suffix=""):
 
 #Centrality
 def get_eigenvector_centrality(G,suffix =''):
+    print(G)
     nodes_eigenvector_centrality_dicts = []
     feature_d = {}
     try:

@@ -1,3 +1,4 @@
+from glycosylator_master import glycosylator as gl
 import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
 import string
 import itertools
@@ -53,16 +54,7 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
     Returns n x m matrix where n is the number of positions in the PDB_FILE and m is the number of features'''
 
     job_result_dir = results_dir
-    if os.path.exists("/groups/pupko/natannag/"):
-        scripts_dir = CONSTS.EVORATOR_EXEC
-        sys.path.append(os.path.join(scripts_dir,"glycosylator-master"))
-        try:
-            import glycosylator as gl
-        except:
-            pass
-
-    else:
-        scripts_dir = ""
+    scripts_dir = CONSTS.EVORATOR_EXEC
 
     #    if job_title== '':
     #       job_title = os.path.split(pdb_file_single_chain)[-1].split(".")[0]
@@ -81,7 +73,7 @@ def extract_features(edgelist, pdb_file_complete, pdb_file_single_chain, pdb_cha
                 with open(pdb_file_complete, 'w') as f:
                     f.write('CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1          \n')
                     f.write(content)
-            cmd = f'module unload python/python-anaconda3.7-itaym;module load dssp-4.0; module load boost/boost-1-75-0; module load gcc/gcc-8.2.0; mkdssp -i {pdb_file_complete} --output-format=dssp -o {dssp_output}'
+            cmd = f'mkdssp --output-format=dssp {pdb_file_complete} {dssp_output}'
             logging.debug(cmd)
             subprocess.check_output(cmd, shell=True)
     except Exception as e:

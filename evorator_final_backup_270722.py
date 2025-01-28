@@ -782,6 +782,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     # logging.debug(f'error shape={final_df[["lower_e", "upper_e"]].T}')
     # if os.path.exists(done_path) or os.path.exists(done_figure_path):
     final_df.to_csv(done_path)
+    map_predictions_to_pdb.map_scores_to_pdb(done_path,os.path.join(results_dir,pdbFileOriginal),os.path.join(results_dir,pdbFileOriginal.replace(".pdb","_evorator.pdb")))
     if os.path.exists(done_path):
         logging.debug(f'768')
 
@@ -822,7 +823,7 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 print(str(x)+'\t'+str(y)+'\n')
                 f.write(str(x)+'\t'+str(y)+'\n')
 
-        cmd = f'/groups/pupko/natannag/conda/envs/NatanEnv/bin/python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {EDGELIST_FILE_FOR_DRAWING_NETWORK} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
+        cmd = f'python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {EDGELIST_FILE_FOR_DRAWING_NETWORK} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
 #        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_3d_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
         logging.debug(f'creating network image: {cmd}')
@@ -972,15 +973,9 @@ if __name__ == '__main__':
     import evorator_CONSTANTS as CONSTS  # from /effectidor/auxiliaries
     from time import sleep
 
-    if os.path.exists('/bioseq/evorator'):  # remote run
-        sys.path.append('/bioseq/evorator/auxiliaries/')
-        sys.path.append('/bioseq/bioSequence_scripts_and_constants/')
-        # sys.path.append('/groups/pupko/natannag/natan_git/consurf_n2v/huang')
-        sys.path.append('/groups/pupko/natannag/natan_git/ScanNet_dev/')
-        sys.path.append('/groups/pupko/natannag/natan_git/EvolutionPrediction/')
         #
     # C:\Users\natan\Documents\EvolutionPrediction\extract_pairwise_distances.py
-    laptop = False if os.path.exists("/groups/pupko/natannag/natan_git") else True
+
     path2scannet = 'ScanNet_dev/'
     path2evolutionprediction = 'EvolutionPrediction/'
 
@@ -1008,15 +1003,12 @@ if __name__ == '__main__':
     from auxiliaries import fail, update_html, append_to_html  # from /effectidor/auxiliaries
     import urllib
     from bs4 import BeautifulSoup
-    if not laptop:
-        from sklearn.externals import joblib #
-    else:
-        import joblib
+    from sklearn.externals import joblib #
     from Bio.SubsMat import MatrixInfo as matlist
     from tensorflow.python.keras.models import Model, load_model
     import sklearn
     from sklearn.preprocessing import LabelEncoder
-
+    import map_predictions_to_pdb
     import shutil
     import re
     main()
