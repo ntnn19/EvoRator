@@ -1,4 +1,24 @@
 import click
+def add_pdb_header(pdb_file, header_text):
+    # Read the content of the existing PDB file
+    with open(pdb_file, 'r') as file:
+        lines = file.readlines()
+
+    # Check if there is already a header
+    if any(line.startswith("HEADER") for line in lines):
+        print(f"The file {pdb_file} already contains a HEADER.")
+        return
+
+    # Add a header at the beginning of the file
+    header_line = f"HEADER    {header_text}\n"
+    lines.insert(0, header_line)  # Insert the header at the top of the file
+
+    # Write the updated content back to the PDB file
+    with open(pdb_file, 'w') as file:
+        file.writelines(lines)
+
+    print(f"Header added to the file {pdb_file}.")
+
 def NNModel_class(input_dim=None, num_classes=2,n_hidden=147,vote=False):
     X_input = Input(input_dim)
     X = Dense(input_dim[0],kernel_initializer='normal', activation='relu', name='fc1')(X_input)
@@ -320,6 +340,8 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
     else: # user provided coordinate file
         print("user provided coordinate file",pdb_file)
+        header_text = subdir_name
+        add_pdb_header(pdb_file, header_text)
         pdb_input = pdb_file
         identifier_for_scannet_obtain_pdb_routine = job_title + "_0-" + pdb_chain
         print(pdb_input)
@@ -665,7 +687,8 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
 
     pdbFileOriginal = [f for f in os.listdir(results_dir) if f.endswith(".ent") or f.endswith(".pdb")]
-    pdbFileOriginal = [f for f in pdbFileOriginal if "_" not in f][0]
+    print("pdbFileOriginal=",pdbFileOriginal)
+    pdbFileOriginal = [f for f in pdbFileOriginal if not f.endswith(f"_{pdb_chain}.pdb")][0]
 
     if not orphan_prediction:
         if prediction_task=='PERfGR':
