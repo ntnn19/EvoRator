@@ -8,6 +8,7 @@ import Bio.PDB
 from Bio.PDB import *
 from Bio.PDB import PDBIO
 from Bio.PDB import PDBParser
+from Bio.PDB import MMCIFParser
 
 
 def is_number(s):
@@ -172,9 +173,15 @@ else:
 # cwd = os.getcwd()
 cwd = options.jobdir
 os.system("mkdir " + cwd + "/" + out_folder)
+if str(options.f1).endswith(".pdb") and str(options.f2).endswith(".pdb"):
+    protein_parser = PDBParser()
+elif str(options.f1).endswith(".cif") and str(options.f2).endswith(".cif"):
+    protein_parser = MMCIFParser()
+else:
+    raise ValueError(f"Both atomic coordinate files must be either cif or pdb files. Got {options.f1} and {options.f2}")
 
-str_1 = PDBParser().get_structure('first_one', options.f1)  # load your molecule
-str_2 = PDBParser().get_structure('second_one', options.f2)  # load your molecule
+str_1 = protein_parser.get_structure('first_one', options.f1)  # load your molecule
+str_2 = protein_parser.get_structure('second_one', options.f2)  # load your molecule
 
 chains_1 = options.c1
 
