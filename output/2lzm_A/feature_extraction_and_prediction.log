@@ -1,31 +1,31 @@
-2025-04-08 11:01:19 DEBUG    FINAL EVORATOR
-2025-04-08 11:01:19 DEBUG    sklearn version = 0.20.1
-2025-04-08 11:01:19 DEBUG    174
-2025-04-08 11:01:20 DEBUG    getting edge_list_file
-2025-04-08 11:01:20 DEBUG    Loaded backend qtagg version unknown.
-2025-04-08 11:01:20 DEBUG    output/2lzm_A/2LZM_edgelist.txt
-2025-04-08 11:01:20 DEBUG    Running DSSP
-2025-04-08 11:01:20 DEBUG    mkdssp --output-format=dssp output/2lzm_A/2LZM.pdb output/2lzm_A/2LZM.dssp
-2025-04-08 11:01:20 DEBUG    Running calc_rsa
-2025-04-08 11:01:20 DEBUG    python /home/nadmin/repos/EvoRator/calc_rsa.py output/2lzm_A/2LZM.dssp output/2lzm_A
-2025-04-08 11:01:20 DEBUG    Running calc_wcn
-2025-04-08 11:01:20 DEBUG    python /home/nadmin/repos/EvoRator/calc_wcn.py output/2lzm_A/2LZM.pdb -d output/2lzm_A
-2025-04-08 11:01:20 DEBUG    Running calc_networkx
-2025-04-08 11:01:20 DEBUG    python /home/nadmin/repos/EvoRator/calc_networkx.py output/2lzm_A/2LZM_edgelist.txt output/2lzm_A --job-title=2LZM
-2025-04-08 11:01:21 DEBUG    Running convert_edgelist_2_LEDA_and_calc_GDV
-2025-04-08 11:01:21 DEBUG    python /home/nadmin/repos/EvoRator/calc_gdv/convert_edgelist_2_LEDA_and_calc_GDV.py output/2lzm_A/2LZM_edgelist.txt output/2lzm_A --job-title=2LZM
-2025-04-08 11:01:21 DEBUG    Running get_disordered_and_binding_sites.py
-2025-04-08 11:01:21 DEBUG    python /home/nadmin/repos/EvoRator/get_disordered_and_binding_sites.py output/2lzm_A/2LZM.pdb A output/2lzm_A --job-title=2LZM
-2025-04-08 11:01:21 DEBUG    pdb_code1: 2LZM
-2025-04-08 11:01:21 DEBUG    pdb_code2: 2LZM
-2025-04-08 11:01:21 DEBUG    chain pairs: []
-2025-04-08 11:01:21 DEBUG    1427 atoms and 1 coordinate set(s) were parsed in 0.01s.
-2025-04-08 11:01:21 DEBUG    glycosylated: []
-2025-04-08 11:01:21 DEBUG    output/2lzm_A/2LZM.dssp.rsa.csv
-2025-04-08 11:01:21 DEBUG    output/2lzm_A/2LZM.wcn.csv
-2025-04-08 11:01:21 DEBUG    output/2lzm_A/2LZM.naps.csv
-2025-04-08 11:01:21 DEBUG    output/2lzm_A/2LZM.gdv.csv
-2025-04-08 11:01:21 DEBUG        pdb_position chain_x structure pdb_aa_x       rsa chain_y pdb_aa_y    wcn_sc  ...  graphlet66  graphlet67  graphlet68  graphlet69  graphlet70  graphlet71  graphlet72  graphlet73
+2025-04-08 11:13:49 DEBUG    FINAL EVORATOR
+2025-04-08 11:13:49 DEBUG    sklearn version = 0.20.1
+2025-04-08 11:13:49 DEBUG    174
+2025-04-08 11:13:49 DEBUG    getting edge_list_file
+2025-04-08 11:13:49 DEBUG    Loaded backend qtagg version unknown.
+2025-04-08 11:13:49 DEBUG    output/2lzm_A/2LZM_edgelist.txt
+2025-04-08 11:13:49 DEBUG    Running DSSP
+2025-04-08 11:13:49 DEBUG    mkdssp --output-format=dssp output/2lzm_A/2LZM.pdb output/2lzm_A/2LZM.dssp
+2025-04-08 11:13:49 DEBUG    Running calc_rsa
+2025-04-08 11:13:49 DEBUG    python /home/nadmin/repos/EvoRator/calc_rsa.py output/2lzm_A/2LZM.dssp output/2lzm_A
+2025-04-08 11:13:49 DEBUG    Running calc_wcn
+2025-04-08 11:13:49 DEBUG    python /home/nadmin/repos/EvoRator/calc_wcn.py output/2lzm_A/2LZM.pdb -d output/2lzm_A
+2025-04-08 11:13:50 DEBUG    Running calc_networkx
+2025-04-08 11:13:50 DEBUG    python /home/nadmin/repos/EvoRator/calc_networkx.py output/2lzm_A/2LZM_edgelist.txt output/2lzm_A --job-title=2LZM
+2025-04-08 11:13:50 DEBUG    Running convert_edgelist_2_LEDA_and_calc_GDV
+2025-04-08 11:13:50 DEBUG    python /home/nadmin/repos/EvoRator/calc_gdv/convert_edgelist_2_LEDA_and_calc_GDV.py output/2lzm_A/2LZM_edgelist.txt output/2lzm_A --job-title=2LZM
+2025-04-08 11:13:50 DEBUG    Running get_disordered_and_binding_sites.py
+2025-04-08 11:13:50 DEBUG    python /home/nadmin/repos/EvoRator/get_disordered_and_binding_sites.py output/2lzm_A/2LZM.pdb A output/2lzm_A --job-title=2LZM
+2025-04-08 11:13:51 DEBUG    pdb_code1: 2LZM
+2025-04-08 11:13:51 DEBUG    pdb_code2: 2LZM
+2025-04-08 11:13:51 DEBUG    chain pairs: []
+2025-04-08 11:13:51 DEBUG    1427 atoms and 1 coordinate set(s) were parsed in 0.01s.
+2025-04-08 11:13:51 DEBUG    glycosylated: []
+2025-04-08 11:13:51 DEBUG    output/2lzm_A/2LZM.dssp.rsa.csv
+2025-04-08 11:13:51 DEBUG    output/2lzm_A/2LZM.wcn.csv
+2025-04-08 11:13:51 DEBUG    output/2lzm_A/2LZM.naps.csv
+2025-04-08 11:13:51 DEBUG    output/2lzm_A/2LZM.gdv.csv
+2025-04-08 11:13:51 DEBUG        pdb_position chain_x structure pdb_aa_x       rsa chain_y pdb_aa_y    wcn_sc  ...  graphlet66  graphlet67  graphlet68  graphlet69  graphlet70  graphlet71  graphlet72  graphlet73
 0        A1_2LZM       A       NaN        M  0.401786       A        M  0.701402  ...           9           3           0           0           0           2           0           0
 1        A2_2LZM       A       NaN        N  0.358974       A        N  0.633185  ...           5           8           2           0           0           5           2           1
 2        A3_2LZM       A         H        I  0.101523       A        I  0.913900  ...           5          13           0           0           0           6           3           2
@@ -39,12 +39,12 @@
 163    A164_2LZM       A       NaN        L  0.542289       A        L  0.583227  ...           3           2           0           0           0           1           0           0
 
 [164 rows x 105 columns]
-2025-04-08 11:01:21 DEBUG    glycosylated: 0
-2025-04-08 11:01:21 DEBUG    columns after first merging=['pdb_position', 'chain_x', 'structure', 'pdb_aa_x', 'rsa', 'chain_y', 'pdb_aa_y', 'wcn_sc', 'wcn_ca', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'disorder', 'binding', 'catalysis']
-2025-04-08 11:01:21 DEBUG    glycosylated: 0
-2025-04-08 11:01:21 DEBUG    glycosylated: 282
-2025-04-08 11:01:21 DEBUG    164
-2025-04-08 11:01:21 DEBUG        pdb_position chain_x structure pdb_aa_x       rsa chain_y pdb_aa_y  ...  graphlet72  graphlet73        disorder      binding       catalysis  aa_group_5  aa_group_HP
+2025-04-08 11:13:51 DEBUG    glycosylated: 0
+2025-04-08 11:13:51 DEBUG    columns after first merging=['pdb_position', 'chain_x', 'structure', 'pdb_aa_x', 'rsa', 'chain_y', 'pdb_aa_y', 'wcn_sc', 'wcn_ca', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '3_clique', '4_clique', '2_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'disorder', 'binding', 'catalysis']
+2025-04-08 11:13:51 DEBUG    glycosylated: 0
+2025-04-08 11:13:51 DEBUG    glycosylated: 282
+2025-04-08 11:13:51 DEBUG    164
+2025-04-08 11:13:51 DEBUG        pdb_position chain_x structure pdb_aa_x       rsa chain_y pdb_aa_y  ...  graphlet72  graphlet73        disorder      binding       catalysis  aa_group_5  aa_group_HP
 0        A1_2LZM       A       NaN        M  0.401786       A        M  ...           0           0  Non disordered  Non binding  None catalytic     Diverse  Hydrophobic
 1        A2_2LZM       A       NaN        N  0.358974       A        N  ...           2           1  Non disordered  Non binding  None catalytic     Diverse        Polar
 2        A3_2LZM       A         H        I  0.101523       A        I  ...           3           2  Non disordered  Non binding  None catalytic   Aliphatic  Hydrophobic
@@ -58,10 +58,10 @@
 163    A164_2LZM       A       NaN        L  0.542289       A        L  ...           0           0  Non disordered  Non binding  None catalytic   Aliphatic  Hydrophobic
 
 [164 rows x 110 columns]
-2025-04-08 11:01:21 DEBUG    164
-2025-04-08 11:01:21 DEBUG    164
-2025-04-08 11:01:21 DEBUG    glycosylated: 318
-2025-04-08 11:01:22 DEBUG    df:     pdb_position chain_x structure pdb_aa_x       rsa  ... total_disordered_neigh total_site_neigh  median_wcn_ca_neigh  median_wcn_sc_neigh  median_rsa_neigh
+2025-04-08 11:13:51 DEBUG    164
+2025-04-08 11:13:51 DEBUG    164
+2025-04-08 11:13:51 DEBUG    glycosylated: 318
+2025-04-08 11:13:51 DEBUG    df:     pdb_position chain_x structure pdb_aa_x       rsa  ... total_disordered_neigh total_site_neigh  median_wcn_ca_neigh  median_wcn_sc_neigh  median_rsa_neigh
 0        A1_2LZM       A       NaN        M  0.401786  ...                      0                0             0.838891             0.633185          0.381281
 1        A2_2LZM       A       NaN        N  0.358974  ...                      0                0             0.876623             0.738963          0.357143
 2        A3_2LZM       A         H        I  0.101523  ...                      0                0             0.925565             0.812061          0.335737
@@ -75,55 +75,55 @@
 163    A164_2LZM       A       NaN        L  0.542289  ...                      0                0             0.653854             0.486734          0.572034
 
 [164 rows x 116 columns]
-2025-04-08 11:01:22 DEBUG    glycosylated: 347
-2025-04-08 11:01:22 DEBUG    raw feature table ['pdb_position', 'chain_x', 'structure', 'pdb_aa_x', 'rsa', 'chain_y', 'pdb_aa_y', 'wcn_sc', 'wcn_ca', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'disorder', 'binding', 'catalysis', 'aa_group_5', 'aa_group_HP', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_M_neigh', 'total_N_neigh', 'total_I_neigh', 'total_F_neigh', 'total_E_neigh', 'total_L_neigh', 'total_R_neigh', 'total_D_neigh', 'total_G_neigh', 'total_K_neigh', 'total_Y_neigh', 'total_T_neigh', 'total_H_neigh', 'total_S_neigh', 'total_P_neigh', 'total_A_neigh', 'total_C_neigh', 'total_V_neigh', 'total_Q_neigh', 'total_W_neigh', 'total_nan_neigh', 'total_ss_H_neigh', 'total_ss_E_neigh', 'total_ss_T_neigh', 'total_ss_S_neigh', 'total_ss_B_neigh', 'total_Diverse_neigh', 'total_Aliphatic_neigh', 'total_Aromatic_neigh', 'total_Charged_neigh', 'total_Tiny_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'protein_interaction', 'total_contact_neigh', 'total_interface_neigh', 'glycosylation', 'total_glycosylated_neigh']
-2025-04-08 11:01:22 DEBUG    missing feature
+2025-04-08 11:13:51 DEBUG    glycosylated: 347
+2025-04-08 11:13:51 DEBUG    raw feature table ['pdb_position', 'chain_x', 'structure', 'pdb_aa_x', 'rsa', 'chain_y', 'pdb_aa_y', 'wcn_sc', 'wcn_ca', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '3_clique', '4_clique', '2_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'disorder', 'binding', 'catalysis', 'aa_group_5', 'aa_group_HP', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_M_neigh', 'total_N_neigh', 'total_I_neigh', 'total_F_neigh', 'total_E_neigh', 'total_L_neigh', 'total_R_neigh', 'total_D_neigh', 'total_G_neigh', 'total_K_neigh', 'total_Y_neigh', 'total_T_neigh', 'total_H_neigh', 'total_S_neigh', 'total_P_neigh', 'total_A_neigh', 'total_C_neigh', 'total_V_neigh', 'total_Q_neigh', 'total_W_neigh', 'total_nan_neigh', 'total_ss_H_neigh', 'total_ss_E_neigh', 'total_ss_T_neigh', 'total_ss_S_neigh', 'total_ss_B_neigh', 'total_Diverse_neigh', 'total_Aliphatic_neigh', 'total_Aromatic_neigh', 'total_Charged_neigh', 'total_Tiny_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'protein_interaction', 'total_contact_neigh', 'total_interface_neigh', 'glycosylation', 'total_glycosylated_neigh']
+2025-04-08 11:13:51 DEBUG    missing feature
 
  6_clique
-2025-04-08 11:01:22 DEBUG    missing feature
+2025-04-08 11:13:51 DEBUG    missing feature
 
  7_clique
-2025-04-08 11:01:22 DEBUG    missing feature
+2025-04-08 11:13:51 DEBUG    missing feature
 
  total_ss_G_neigh
-2025-04-08 11:01:22 DEBUG    missing feature
+2025-04-08 11:13:51 DEBUG    missing feature
 
  total_ss_I_neigh
-2025-04-08 11:01:22 DEBUG    missing feature
+2025-04-08 11:13:51 DEBUG    missing feature
 
  total_ss_P_neigh
-2025-04-08 11:01:22 DEBUG    missing feature
+2025-04-08 11:13:51 DEBUG    missing feature
 
  total_ss_nan_neigh
-2025-04-08 11:01:22 DEBUG    numeric
+2025-04-08 11:13:51 DEBUG    numeric
 
-['rsa', 'wcn_sc', 'wcn_ca', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_M_neigh', 'total_N_neigh', 'total_I_neigh', 'total_F_neigh', 'total_E_neigh', 'total_L_neigh', 'total_R_neigh', 'total_D_neigh', 'total_G_neigh', 'total_K_neigh', 'total_Y_neigh', 'total_T_neigh', 'total_H_neigh', 'total_S_neigh', 'total_P_neigh', 'total_A_neigh', 'total_C_neigh', 'total_V_neigh', 'total_Q_neigh', 'total_W_neigh', 'total_nan_neigh', 'total_ss_H_neigh', 'total_ss_E_neigh', 'total_ss_T_neigh', 'total_ss_S_neigh', 'total_ss_B_neigh', 'total_Diverse_neigh', 'total_Aliphatic_neigh', 'total_Aromatic_neigh', 'total_Charged_neigh', 'total_Tiny_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'total_contact_neigh', 'total_interface_neigh', 'total_glycosylated_neigh', '6_clique', '7_clique', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
-2025-04-08 11:01:22 DEBUG    cat
+['rsa', 'wcn_sc', 'wcn_ca', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '3_clique', '4_clique', '2_clique', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_M_neigh', 'total_N_neigh', 'total_I_neigh', 'total_F_neigh', 'total_E_neigh', 'total_L_neigh', 'total_R_neigh', 'total_D_neigh', 'total_G_neigh', 'total_K_neigh', 'total_Y_neigh', 'total_T_neigh', 'total_H_neigh', 'total_S_neigh', 'total_P_neigh', 'total_A_neigh', 'total_C_neigh', 'total_V_neigh', 'total_Q_neigh', 'total_W_neigh', 'total_nan_neigh', 'total_ss_H_neigh', 'total_ss_E_neigh', 'total_ss_T_neigh', 'total_ss_S_neigh', 'total_ss_B_neigh', 'total_Diverse_neigh', 'total_Aliphatic_neigh', 'total_Aromatic_neigh', 'total_Charged_neigh', 'total_Tiny_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'total_contact_neigh', 'total_interface_neigh', 'total_glycosylated_neigh', '6_clique', '7_clique', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
+2025-04-08 11:13:51 DEBUG    cat
 
 ['glycosylation', 'protein_interaction', 'disorder', 'binding', 'catalysis', 'pdb_aa', 'aa_group_5', 'aa_group_HP', 'structure']
-2025-04-08 11:01:22 DEBUG    evorator: 254
-2025-04-08 11:01:22 DEBUG    glycosylation
-2025-04-08 11:01:22 DEBUG    protein_interaction
-2025-04-08 11:01:22 DEBUG    disorder
-2025-04-08 11:01:22 DEBUG    binding
-2025-04-08 11:01:22 DEBUG    catalysis
-2025-04-08 11:01:22 DEBUG    pdb_aa
-2025-04-08 11:01:22 DEBUG    aa_group_5
-2025-04-08 11:01:22 DEBUG    aa_group_HP
-2025-04-08 11:01:22 DEBUG    structure
-2025-04-08 11:01:22 DEBUG    551
-2025-04-08 11:01:22 DEBUG    (164, 143)
-2025-04-08 11:01:22 DEBUG    all
+2025-04-08 11:13:51 DEBUG    evorator: 254
+2025-04-08 11:13:51 DEBUG    glycosylation
+2025-04-08 11:13:51 DEBUG    protein_interaction
+2025-04-08 11:13:51 DEBUG    disorder
+2025-04-08 11:13:51 DEBUG    binding
+2025-04-08 11:13:51 DEBUG    catalysis
+2025-04-08 11:13:51 DEBUG    pdb_aa
+2025-04-08 11:13:51 DEBUG    aa_group_5
+2025-04-08 11:13:51 DEBUG    aa_group_HP
+2025-04-08 11:13:51 DEBUG    structure
+2025-04-08 11:13:51 DEBUG    551
+2025-04-08 11:13:51 DEBUG    (164, 143)
+2025-04-08 11:13:51 DEBUG    all
 ['6_clique', '7_clique', 'total_contact_neigh', 'total_interface_neigh', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
-2025-04-08 11:01:22 DEBUG    ABC
+2025-04-08 11:13:51 DEBUG    ABC
 []
-2025-04-08 11:01:22 DEBUG    #
+2025-04-08 11:13:51 DEBUG    #
 ['total_contact_neigh', 'total_interface_neigh', '6_clique', '7_clique', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
-2025-04-08 11:01:23 DEBUG    scores:-1.2432626427765023
-2025-04-08 11:01:23 DEBUG    scores:-0.9703205132801219
-2025-04-08 11:01:23 DEBUG    scores:0.2729421294963804
-2025-04-08 11:01:23 DEBUG    scores:[-1.2432626427765023, -0.9703205132801219, -0.6973783837837415, -0.4244362542873611, -0.15149412479098068, 0.12144800470539974, 0.39439013420178015, 0.6673322636981606, 0.940274393194541, 1.2132165226909213]
-2025-04-08 11:01:23 DEBUG    scores:     ResInd  predicted_score
+2025-04-08 11:13:53 DEBUG    scores:-1.2432626427765023
+2025-04-08 11:13:53 DEBUG    scores:-0.9703205132801219
+2025-04-08 11:13:53 DEBUG    scores:0.2729421294963804
+2025-04-08 11:13:53 DEBUG    scores:[-1.2432626427765023, -0.9703205132801219, -0.6973783837837415, -0.4244362542873611, -0.15149412479098068, 0.12144800470539974, 0.39439013420178015, 0.6673322636981606, 0.940274393194541, 1.2132165226909213]
+2025-04-08 11:13:53 DEBUG    scores:     ResInd  predicted_score
 0         1        -0.227122
 1         2        -0.029456
 2         3         0.033637
@@ -137,8 +137,8 @@
 163     164        -0.163834
 
 [164 rows x 2 columns]
-2025-04-08 11:01:23 DEBUG    768
-2025-04-08 11:01:23 DEBUG    creating network image: python /home/nadmin/repos/EvoRator/draw_3d_network.py output/2lzm_A/2LZM_A_coordinates.txt output/2lzm_A/2LZM_A_edgelist_draw.txt output/2lzm_A/evorator.scores.for.2d output/2lzm_A
-2025-04-08 11:01:24 DEBUG    773
-2025-04-08 11:01:24 DEBUG    779
-2025-04-08 11:01:24 DEBUG    DONE
+2025-04-08 11:13:53 DEBUG    768
+2025-04-08 11:13:53 DEBUG    creating network image: python /home/nadmin/repos/EvoRator/draw_3d_network.py output/2lzm_A/2LZM_A_coordinates.txt output/2lzm_A/2LZM_A_edgelist_draw.txt output/2lzm_A/evorator.scores.for.2d output/2lzm_A
+2025-04-08 11:13:53 DEBUG    773
+2025-04-08 11:13:53 DEBUG    779
+2025-04-08 11:13:53 DEBUG    DONE
