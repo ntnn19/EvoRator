@@ -4,6 +4,7 @@ EvoRator
 ## Clone this repository
 ```bash
 git clone --recurse-submodules https://github.com/ntnn19/EvoRator.git
+```
 
 ## Install dssp
 ```bash
