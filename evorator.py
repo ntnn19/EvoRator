@@ -687,7 +687,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
 
     pdbFileOriginal = [f for f in os.listdir(results_dir) if f.endswith(".ent") or f.endswith(".pdb")]
-    print("pdbFileOriginal=",pdbFileOriginal)
     pdbFileOriginal = [f for f in pdbFileOriginal if not f.endswith(f"_{pdb_chain}.pdb")][0]
 
     if not orphan_prediction:
