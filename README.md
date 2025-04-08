@@ -4,12 +4,17 @@ EvoRator
 ## Clone this repository
 ```bash
 git clone --recurse-submodules https://github.com/ntnn19/EvoRator.git
+
+## Install dssp
+```bash
+sudo apt-get install dssp
 ```
 
-## Setup the virtual environment 
+## Setup & activate the virtual environment 
 ```bash
 cd EvoRator
 micromamba env create -p $PWD/venv -f env.yaml
+micromamba activate $PWD/venv
 ```
  
 ## Run an example
