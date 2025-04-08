@@ -900,20 +900,14 @@ if __name__ == '__main__':
     import sys
 
     import os
-    # sys.path.append('/bioseq/evorator/auxiliaries')
     import evorator_CONSTANTS as CONSTS  # from /effectidor/auxiliaries
     from time import sleep
-
-        #
-    # C:\Users\natan\Documents\EvolutionPrediction\extract_pairwise_distances.py
 
     path2scannet = 'ScanNet_dev/'
     path2evolutionprediction = 'EvolutionPrediction/'
 
     sys.path.append(path2scannet)
     sys.path.append(path2evolutionprediction)
-    # import evorator_CONSTANTS as CONSTS  # from /bioseq/natan_conservation_webserver/auxiliaries/
-    # from GENERAL_CONSTANTS import PDB_DIVIDED  # from /bioseq/bioSequence_scripts_and_constants/
     import extract_pairwise_distances
     from preprocessing import PDBio, PDB_processing
 
