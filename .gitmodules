@@ -1,6 +1,0 @@
-[submodule "EvolutionPrediction"]
-	path = EvolutionPrediction
-	url = https://github.com/ntnn19/EvolutionPrediction.git
-[submodule "ScanNet_dev"]
-	path = ScanNet_dev
-	url = https://github.com/ntnn19/ScanNet_dev.git
