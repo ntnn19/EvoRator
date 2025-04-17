@@ -1,0 +1,6 @@
+./glycosylator_master/__pycache__/glycosylator.cpython-37.pyc
+./glycosylator_master/support/scripts/buildICs.pyc
+./glycosylator_master/glycosylator.pyc
+./__pycache__/convert_bulk.cpython-37.pyc
+./__pycache__/readpdb_chain.cpython-37.pyc
+./__pycache__/extract_features_4_a_single_query.cpython-37.pyc
