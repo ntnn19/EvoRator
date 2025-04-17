@@ -538,3 +538,338 @@
 2025-04-17 09:59:11 DEBUG    773
 2025-04-17 09:59:11 DEBUG    779
 2025-04-17 09:59:11 DEBUG    DONE
+2025-04-17 10:34:11 DEBUG    FINAL EVORATOR
+2025-04-17 10:34:11 DEBUG    sklearn version = 0.20.1
+2025-04-17 10:34:11 DEBUG    174
+2025-04-17 10:35:32 DEBUG    FINAL EVORATOR
+2025-04-17 10:35:32 DEBUG    sklearn version = 0.20.1
+2025-04-17 10:35:32 DEBUG    174
+2025-04-17 10:37:14 DEBUG    FINAL EVORATOR
+2025-04-17 10:37:14 DEBUG    sklearn version = 0.20.1
+2025-04-17 10:37:14 DEBUG    174
+2025-04-17 10:40:55 DEBUG    FINAL EVORATOR
+2025-04-17 10:40:55 DEBUG    sklearn version = 0.20.1
+2025-04-17 10:40:55 DEBUG    174
+2025-04-17 10:54:50 DEBUG    FINAL EVORATOR
+2025-04-17 10:54:50 DEBUG    sklearn version = 0.20.1
+2025-04-17 10:54:50 DEBUG    174
+2025-04-17 10:54:50 DEBUG    getting edge_list_file
+2025-04-17 10:54:51 DEBUG    Loaded backend qtagg version unknown.
+2025-04-17 10:54:52 DEBUG    output/2lzm_A/2LZM_edgelist.txt
+2025-04-17 10:54:52 DEBUG    Running DSSP
+2025-04-17 10:54:52 DEBUG    mkdssp --output-format=dssp output/2lzm_A/2LZM.pdb output/2lzm_A/2LZM.dssp
+2025-04-17 10:54:52 DEBUG    DSSP failed
+2025-04-17 10:54:52 DEBUG    Running calc_rsa
+2025-04-17 10:54:52 DEBUG    python /scratch1/home/nnagar/repos/test_evorator/EvoRator/calc_rsa.py output/2lzm_A/2LZM.dssp output/2lzm_A
+2025-04-17 10:54:52 DEBUG    DSSP output file was not found
+2025-04-17 10:54:52 DEBUG    Running calc_wcn
+2025-04-17 10:54:52 DEBUG    python /scratch1/home/nnagar/repos/test_evorator/EvoRator/calc_wcn.py output/2lzm_A/2LZM.pdb -d output/2lzm_A
+2025-04-17 10:54:52 DEBUG    Running calc_networkx
+2025-04-17 10:54:52 DEBUG    python /scratch1/home/nnagar/repos/test_evorator/EvoRator/calc_networkx.py output/2lzm_A/2LZM_edgelist.txt output/2lzm_A --job-title=2LZM
+2025-04-17 10:54:53 DEBUG    Running convert_edgelist_2_LEDA_and_calc_GDV
+2025-04-17 10:54:53 DEBUG    python /scratch1/home/nnagar/repos/test_evorator/EvoRator/calc_gdv/convert_edgelist_2_LEDA_and_calc_GDV.py output/2lzm_A/2LZM_edgelist.txt output/2lzm_A --job-title=2LZM
+2025-04-17 10:54:53 DEBUG    Running get_disordered_and_binding_sites.py
+2025-04-17 10:54:53 DEBUG    python /scratch1/home/nnagar/repos/test_evorator/EvoRator/get_disordered_and_binding_sites.py output/2lzm_A/2LZM.pdb A output/2lzm_A --job-title=2LZM
+2025-04-17 10:54:53 DEBUG    pdb_code1: 2LZM
+2025-04-17 10:54:53 DEBUG    pdb_code2: 2LZM
+2025-04-17 10:54:53 DEBUG    chain pairs: []
+2025-04-17 10:54:53 DEBUG    1427 atoms and 1 coordinate set(s) were parsed in 0.01s.
+2025-04-17 10:54:53 DEBUG    glycosylated: []
+2025-04-17 10:54:54 DEBUG    output/2lzm_A/2LZM.naps.csv
+2025-04-17 10:54:54 DEBUG    output/2lzm_A/2LZM.gdv.csv
+2025-04-17 10:54:54 DEBUG    output/2lzm_A/2LZM.wcn.csv
+2025-04-17 10:54:54 DEBUG        pdb_position  eigenvector_centrality  betweenness_centrality  node_degree  degree_centrality  average_neighbor_degree  clustering_coefficient  5_clique  4_clique  2_clique  3_clique neighbor_pos_0  ... graphlet66 graphlet67 graphlet68 graphlet69 graphlet70 graphlet71 graphlet72 graphlet73 chain pdb_aa    wcn_sc    wcn_ca
+0      A100_2LZM                0.191407                0.069395           10           0.061350                 9.600000                0.466667       5.0       1.0       0.0       1.0       A74_2LZM  ...         20         27         26          1          0         10         17          5     A      I  0.951453  1.106609
+1      A101_2LZM                0.159964                0.107133            9           0.055215                 9.111111                0.500000       5.0       0.0       1.0       0.0        A7_2LZM  ...          9         27         20          0          0         11         15          5     A      N  1.072101  1.123841
+2      A102_2LZM                0.164688                0.038605            9           0.055215                 9.111111                0.555556       5.0       1.0       0.0       0.0       A98_2LZM  ...         10         23         31          4          0         12         17          5     A      M  1.035146  1.103690
+3      A103_2LZM                0.182888                0.044058           11           0.067485                 8.818182                0.472727       6.0       2.0       0.0       0.0       A74_2LZM  ...         10         20         56          0          2         10         25          6     A      V  0.983698  1.128720
+4      A104_2LZM                0.152076                0.046268            9           0.055215                 9.000000                0.500000       4.0       1.0       0.0       1.0       A71_2LZM  ...         15         25         24          3          0          8         13          4     A      F  0.965731  1.072385
+..           ...                     ...                     ...          ...                ...                      ...                     ...       ...       ...       ...       ...            ...  ...        ...        ...        ...        ...        ...        ...        ...        ...   ...    ...       ...       ...
+159     A96_2LZM                0.161220                0.039029           10           0.061350                 8.500000                0.488889       6.0       0.0       0.0       1.0       A88_2LZM  ...          9         22         35          1          0          5         19          6     A      R  0.680073  1.005326
+160     A97_2LZM                0.154597                0.046635            9           0.055215                 8.777778                0.500000       5.0       0.0       1.0       0.0        A3_2LZM  ...          9         28         20          0          0         10         15          5     A      C  0.885158  1.039143
+161     A98_2LZM                0.211385                0.115535           11           0.067485                 9.636364                0.418182       5.0       2.0       0.0       0.0       A94_2LZM  ...         21         31         34          2          0         13         16          5     A      A  1.045176  1.122625
+162     A99_2LZM                0.164777                0.010115            8           0.049080                10.000000                0.642857       5.0       0.0       0.0       0.0       A95_2LZM  ...         15         30         20          0          0         10         15          5     A      L  0.974588  1.102262
+163      A9_2LZM                0.021381                0.002759            7           0.042945                 8.142857                0.714286       4.0       0.0       0.0       0.0        A5_2LZM  ...          7         18         12          0          0          6         11          4     A      I  0.715760  0.867586
+
+[164 rows x 101 columns]
+2025-04-17 10:54:54 DEBUG    glycosylated: 0
+2025-04-17 10:54:54 DEBUG    columns after first merging=['pdb_position', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'chain', 'pdb_aa', 'wcn_sc', 'wcn_ca', 'disorder', 'binding', 'catalysis']
+2025-04-17 10:54:54 DEBUG    glycosylated: 0
+2025-04-17 10:54:54 DEBUG    glycosylated: 282
+2025-04-17 10:54:54 DEBUG    164
+2025-04-17 10:54:54 DEBUG        pdb_position  eigenvector_centrality  betweenness_centrality  node_degree  degree_centrality  average_neighbor_degree  clustering_coefficient  5_clique  4_clique  2_clique  3_clique  ... graphlet73 chain pdb_aa    wcn_sc    wcn_ca        disorder      binding       catalysis structure aa_group_5  aa_group_HP
+0      A100_2LZM                0.191407                0.069395           10           0.061350                 9.600000                0.466667       5.0       1.0       0.0       1.0  ...          5     A      I  0.951453  1.106609  Non disordered  Non binding  None catalytic       NaN  Aliphatic  Hydrophobic
+1      A101_2LZM                0.159964                0.107133            9           0.055215                 9.111111                0.500000       5.0       0.0       1.0       0.0  ...          5     A      N  1.072101  1.123841  Non disordered  Non binding  None catalytic       NaN    Diverse        Polar
+2      A102_2LZM                0.164688                0.038605            9           0.055215                 9.111111                0.555556       5.0       1.0       0.0       0.0  ...          5     A      M  1.035146  1.103690  Non disordered  Non binding  None catalytic       NaN    Diverse  Hydrophobic
+3      A103_2LZM                0.182888                0.044058           11           0.067485                 8.818182                0.472727       6.0       2.0       0.0       0.0  ...          6     A      V  0.983698  1.128720  Non disordered  Non binding  None catalytic       NaN  Aliphatic  Hydrophobic
+4      A104_2LZM                0.152076                0.046268            9           0.055215                 9.000000                0.500000       4.0       1.0       0.0       1.0  ...          4     A      F  0.965731  1.072385  Non disordered  Non binding  None catalytic       NaN   Aromatic  Hydrophobic
+..           ...                     ...                     ...          ...                ...                      ...                     ...       ...       ...       ...       ...  ...        ...   ...    ...       ...       ...             ...          ...             ...       ...        ...          ...
+159     A96_2LZM                0.161220                0.039029           10           0.061350                 8.500000                0.488889       6.0       0.0       0.0       1.0  ...          6     A      R  0.680073  1.005326  Non disordered  Non binding  None catalytic       NaN    Charged        Polar
+160     A97_2LZM                0.154597                0.046635            9           0.055215                 8.777778                0.500000       5.0       0.0       1.0       0.0  ...          5     A      C  0.885158  1.039143  Non disordered  Non binding  None catalytic       NaN       Tiny  Hydrophobic
+161     A98_2LZM                0.211385                0.115535           11           0.067485                 9.636364                0.418182       5.0       2.0       0.0       0.0  ...          5     A      A  1.045176  1.122625  Non disordered  Non binding  None catalytic       NaN       Tiny        Polar
+162     A99_2LZM                0.164777                0.010115            8           0.049080                10.000000                0.642857       5.0       0.0       0.0       0.0  ...          5     A      L  0.974588  1.102262  Non disordered  Non binding  None catalytic       NaN  Aliphatic  Hydrophobic
+163      A9_2LZM                0.021381                0.002759            7           0.042945                 8.142857                0.714286       4.0       0.0       0.0       0.0  ...          4     A      I  0.715760  0.867586  Non disordered  Non binding  None catalytic       NaN  Aliphatic  Hydrophobic
+
+[164 rows x 107 columns]
+2025-04-17 10:54:54 DEBUG    164
+2025-04-17 10:54:54 DEBUG    164
+2025-04-17 10:54:54 DEBUG    glycosylated: 318
+2025-04-17 10:54:54 DEBUG    df:     pdb_position  eigenvector_centrality  betweenness_centrality  node_degree  degree_centrality  average_neighbor_degree  clustering_coefficient  5_clique  4_clique  ...  structure  aa_group_5  aa_group_HP total_catalytic_neigh total_disordered_neigh total_site_neigh median_wcn_ca_neigh median_wcn_sc_neigh median_rsa_neigh
+0      A100_2LZM                0.191407                0.069395           10           0.061350                 9.600000                0.466667       5.0       1.0  ...        NaN   Aliphatic  Hydrophobic                     0                      0                0            1.087324            0.970159              NaN
+1      A101_2LZM                0.159964                0.107133            9           0.055215                 9.111111                0.500000       5.0       0.0  ...        NaN     Diverse        Polar                     0                      0                0            1.102262            0.974588              NaN
+2      A102_2LZM                0.164688                0.038605            9           0.055215                 9.111111                0.555556       5.0       1.0  ...        NaN     Diverse  Hydrophobic                     0                      0                0            1.102262            0.974588              NaN
+3      A103_2LZM                0.182888                0.044058           11           0.067485                 8.818182                0.472727       6.0       2.0  ...        NaN   Aliphatic  Hydrophobic                     0                      0                0            1.020878            0.951453              NaN
+4      A104_2LZM                0.152076                0.046268            9           0.055215                 9.000000                0.500000       4.0       1.0  ...        NaN    Aromatic  Hydrophobic                     0                      0                0            1.020878            0.939735              NaN
+..           ...                     ...                     ...          ...                ...                      ...                     ...       ...       ...  ...        ...         ...          ...                   ...                    ...              ...                 ...                 ...              ...
+159     A96_2LZM                0.161220                0.039029           10           0.061350                 8.500000                0.488889       6.0       0.0  ...        NaN     Charged        Polar                     0                      0                0            0.980767            0.841045              NaN
+160     A97_2LZM                0.154597                0.046635            9           0.055215                 8.777778                0.500000       5.0       0.0  ...        NaN        Tiny  Hydrophobic                     0                      0                0            1.026474            0.913900              NaN
+161     A98_2LZM                0.211385                0.115535           11           0.067485                 9.636364                0.418182       5.0       2.0  ...        NaN        Tiny        Polar                     0                      0                0            1.043247            0.952257              NaN
+162     A99_2LZM                0.164777                0.010115            8           0.049080                10.000000                0.642857       5.0       0.0  ...        NaN   Aliphatic  Hydrophobic                     0                      0                0            1.105149            0.967575              NaN
+163      A9_2LZM                0.021381                0.002759            7           0.042945                 8.142857                0.714286       4.0       0.0  ...        NaN   Aliphatic  Hydrophobic                     0                      0                0            0.962807            0.939013              NaN
+
+[164 rows x 113 columns]
+2025-04-17 10:54:54 DEBUG    glycosylated: 347
+2025-04-17 10:54:54 DEBUG    raw feature table ['pdb_position', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'chain', 'pdb_aa', 'wcn_sc', 'wcn_ca', 'disorder', 'binding', 'catalysis', 'structure', 'aa_group_5', 'aa_group_HP', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_I_neigh', 'total_N_neigh', 'total_M_neigh', 'total_V_neigh', 'total_F_neigh', 'total_Q_neigh', 'total_G_neigh', 'total_E_neigh', 'total_T_neigh', 'total_D_neigh', 'total_A_neigh', 'total_S_neigh', 'total_L_neigh', 'total_R_neigh', 'total_K_neigh', 'total_W_neigh', 'total_Y_neigh', 'total_P_neigh', 'total_H_neigh', 'total_C_neigh', 'total_nan_neigh', 'total_Aliphatic_neigh', 'total_Diverse_neigh', 'total_Aromatic_neigh', 'total_Tiny_neigh', 'total_Charged_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'protein_interaction', 'total_contact_neigh', 'total_interface_neigh', 'glycosylation', 'total_glycosylated_neigh']
+2025-04-17 10:54:54 DEBUG    0      I
+1      N
+2      M
+3      V
+4      F
+      ..
+159    R
+160    C
+161    A
+162    L
+163    I
+Name: pdb_aa, Length: 164, dtype: object
+2025-04-17 10:54:54 DEBUG    0      I
+1      N
+2      M
+3      V
+4      F
+      ..
+159    R
+160    C
+161    A
+162    L
+163    I
+Name: pdb_aa, Length: 164, dtype: object
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ 6_clique
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ 7_clique
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ rsa
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_B_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_E_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_G_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_H_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_I_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_P_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_S_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_T_neigh
+2025-04-17 10:54:54 DEBUG    missing feature
+
+ total_ss_nan_neigh
+2025-04-17 10:54:54 DEBUG    numeric
+
+['eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'wcn_sc', 'wcn_ca', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_I_neigh', 'total_N_neigh', 'total_M_neigh', 'total_V_neigh', 'total_F_neigh', 'total_Q_neigh', 'total_G_neigh', 'total_E_neigh', 'total_T_neigh', 'total_D_neigh', 'total_A_neigh', 'total_S_neigh', 'total_L_neigh', 'total_R_neigh', 'total_K_neigh', 'total_W_neigh', 'total_Y_neigh', 'total_P_neigh', 'total_H_neigh', 'total_C_neigh', 'total_nan_neigh', 'total_Aliphatic_neigh', 'total_Diverse_neigh', 'total_Aromatic_neigh', 'total_Tiny_neigh', 'total_Charged_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'total_contact_neigh', 'total_interface_neigh', 'total_glycosylated_neigh', '6_clique', '7_clique', 'rsa', 'total_ss_B_neigh', 'total_ss_E_neigh', 'total_ss_G_neigh', 'total_ss_H_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_S_neigh', 'total_ss_T_neigh', 'total_ss_nan_neigh']
+2025-04-17 10:54:54 DEBUG    cat
+
+['glycosylation', 'protein_interaction', 'disorder', 'binding', 'catalysis', 'pdb_aa', 'aa_group_5', 'aa_group_HP', 'structure']
+2025-04-17 10:54:54 DEBUG    evorator: 254
+2025-04-17 10:54:54 DEBUG    glycosylation
+2025-04-17 10:54:54 DEBUG    protein_interaction
+2025-04-17 10:54:54 DEBUG    disorder
+2025-04-17 10:54:54 DEBUG    binding
+2025-04-17 10:54:54 DEBUG    catalysis
+2025-04-17 10:54:54 DEBUG    pdb_aa
+2025-04-17 10:54:54 DEBUG    aa_group_5
+2025-04-17 10:54:54 DEBUG    aa_group_HP
+2025-04-17 10:54:54 DEBUG    structure
+2025-04-17 10:54:54 DEBUG    551
+2025-04-17 10:54:54 DEBUG    (164, 143)
+2025-04-17 10:54:54 DEBUG    all
+['6_clique', '7_clique', 'median_rsa_neigh', 'rsa', 'total_contact_neigh', 'total_interface_neigh', 'total_ss_B_neigh', 'total_ss_E_neigh', 'total_ss_G_neigh', 'total_ss_H_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_S_neigh', 'total_ss_T_neigh', 'total_ss_nan_neigh']
+2025-04-17 10:54:54 DEBUG    ABC
+[]
+2025-04-17 10:54:54 DEBUG    #
+['median_rsa_neigh', 'total_contact_neigh', 'total_interface_neigh', '6_clique', '7_clique', 'rsa', 'total_ss_B_neigh', 'total_ss_E_neigh', 'total_ss_G_neigh', 'total_ss_H_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_S_neigh', 'total_ss_T_neigh', 'total_ss_nan_neigh']
+2025-04-17 10:54:56 DEBUG    scores:-1.2494993427276166
+2025-04-17 10:54:56 DEBUG    scores:-0.9735774348594278
+2025-04-17 10:54:56 DEBUG    scores:0.2759219078681888
+2025-04-17 10:54:56 DEBUG    scores:[-1.2494993427276166, -0.9735774348594278, -0.697655526991239, -0.4217336191230502, -0.14581171125486136, 0.13011019661332746, 0.4060321044815163, 0.6819540123497051, 0.9578759202178939, 1.2337978280860828]
+2025-04-17 10:54:56 DEBUG    scores:     ResInd  predicted_score
+0       100        -0.395704
+1       101        -0.873350
+2       102        -0.535992
+3       103        -0.257492
+4       104        -0.691574
+..      ...              ...
+159      96        -0.435615
+160      97        -0.407563
+161      98        -0.898307
+162      99        -0.542575
+163       9         0.292019
+
+[164 rows x 2 columns]
+2025-04-17 10:54:56 DEBUG    768
+2025-04-17 10:54:56 DEBUG    creating network image: python /scratch1/home/nnagar/repos/test_evorator/EvoRator/draw_3d_network.py output/2lzm_A/2LZM_A_coordinates.txt output/2lzm_A/2LZM_A_edgelist_draw.txt output/2lzm_A/evorator.scores.for.2d output/2lzm_A
+2025-04-17 10:54:56 DEBUG    773
+2025-04-17 10:54:56 DEBUG    779
+2025-04-17 10:54:56 DEBUG    DONE
+2025-04-17 10:55:55 DEBUG    FINAL EVORATOR
+2025-04-17 10:55:55 DEBUG    sklearn version = 0.20.1
+2025-04-17 10:55:55 DEBUG    174
+2025-04-17 10:55:55 DEBUG    getting edge_list_file
+2025-04-17 10:55:55 DEBUG    Loaded backend qtagg version unknown.
+2025-04-17 10:55:55 DEBUG    output/2lzm_A/2LZM_edgelist.txt
+2025-04-17 10:55:55 DEBUG    Running DSSP
+2025-04-17 10:55:55 DEBUG    mkdssp --output-format=dssp output/2lzm_A/2LZM.pdb output/2lzm_A/2LZM.dssp
+2025-04-17 10:55:55 DEBUG    Running calc_rsa
+2025-04-17 10:55:55 DEBUG    python /scratch1/home/nnagar/repos/test_evorator/EvoRator/calc_rsa.py output/2lzm_A/2LZM.dssp output/2lzm_A
+2025-04-17 10:55:55 DEBUG    pdb_code1: 2LZM
+2025-04-17 10:55:55 DEBUG    pdb_code2: 2LZM
+2025-04-17 10:55:55 DEBUG    chain pairs: []
+2025-04-17 10:55:55 DEBUG    1427 atoms and 1 coordinate set(s) were parsed in 0.01s.
+2025-04-17 10:55:55 DEBUG    glycosylated: []
+2025-04-17 10:55:55 DEBUG    output/2lzm_A/2LZM.naps.csv
+2025-04-17 10:55:55 DEBUG    output/2lzm_A/2LZM.gdv.csv
+2025-04-17 10:55:55 DEBUG    output/2lzm_A/2LZM.dssp.rsa.csv
+2025-04-17 10:55:55 DEBUG    output/2lzm_A/2LZM.wcn.csv
+2025-04-17 10:55:55 DEBUG        pdb_position  eigenvector_centrality  betweenness_centrality  node_degree  degree_centrality  average_neighbor_degree  clustering_coefficient  5_clique  4_clique  2_clique  3_clique neighbor_pos_0  ... graphlet70 graphlet71 graphlet72 graphlet73 chain_x structure pdb_aa_x       rsa chain_y pdb_aa_y    wcn_sc    wcn_ca
+0      A100_2LZM                0.191407                0.069395           10           0.061350                 9.600000                0.466667       5.0       1.0       0.0       1.0       A74_2LZM  ...          0         10         17          5       A         H        I  0.040609       A        I  0.951453  1.106609
+1      A101_2LZM                0.159964                0.107133            9           0.055215                 9.111111                0.500000       5.0       0.0       1.0       0.0        A7_2LZM  ...          0         11         15          5       A         H        N  0.000000       A        N  1.072101  1.123841
+2      A102_2LZM                0.164688                0.038605            9           0.055215                 9.111111                0.555556       5.0       1.0       0.0       0.0       A98_2LZM  ...          0         12         17          5       A         H        M  0.013393       A        M  1.035146  1.103690
+3      A103_2LZM                0.182888                0.044058           11           0.067485                 8.818182                0.472727       6.0       2.0       0.0       0.0       A74_2LZM  ...          2         10         25          6       A         H        V  0.045977       A        V  0.983698  1.128720
+4      A104_2LZM                0.152076                0.046268            9           0.055215                 9.000000                0.500000       4.0       1.0       0.0       1.0       A71_2LZM  ...          0          8         13          4       A         H        F  0.133333       A        F  0.965731  1.072385
+..           ...                     ...                     ...          ...                ...                      ...                     ...       ...       ...       ...       ...            ...  ...        ...        ...        ...        ...     ...       ...      ...       ...     ...      ...       ...       ...
+159     A96_2LZM                0.161220                0.039029           10           0.061350                 8.500000                0.488889       6.0       0.0       0.0       1.0       A88_2LZM  ...          0          5         19          6       A         H        R  0.281022       A        R  0.680073  1.005326
+160     A97_2LZM                0.154597                0.046635            9           0.055215                 8.777778                0.500000       5.0       0.0       1.0       0.0        A3_2LZM  ...          0         10         15          5       A         H        C  0.107784       A        C  0.885158  1.039143
+161     A98_2LZM                0.211385                0.115535           11           0.067485                 9.636364                0.418182       5.0       2.0       0.0       0.0       A94_2LZM  ...          0         13         16          5       A         H        A  0.000000       A        A  1.045176  1.122625
+162     A99_2LZM                0.164777                0.010115            8           0.049080                10.000000                0.642857       5.0       0.0       0.0       0.0       A95_2LZM  ...          0         10         15          5       A         H        L  0.000000       A        L  0.974588  1.102262
+163      A9_2LZM                0.021381                0.002759            7           0.042945                 8.142857                0.714286       4.0       0.0       0.0       0.0        A5_2LZM  ...          0          6         11          4       A         H        I  0.289340       A        I  0.715760  0.867586
+
+[164 rows x 105 columns]
+2025-04-17 10:55:55 DEBUG    glycosylated: 0
+2025-04-17 10:55:55 DEBUG    columns after first merging=['pdb_position', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'chain_x', 'structure', 'pdb_aa_x', 'rsa', 'chain_y', 'pdb_aa_y', 'wcn_sc', 'wcn_ca', 'disorder', 'binding', 'catalysis']
+2025-04-17 10:55:55 DEBUG    glycosylated: 0
+2025-04-17 10:55:55 DEBUG    glycosylated: 282
+2025-04-17 10:55:55 DEBUG    164
+2025-04-17 10:55:55 DEBUG        pdb_position  eigenvector_centrality  betweenness_centrality  node_degree  degree_centrality  average_neighbor_degree  clustering_coefficient  5_clique  4_clique  2_clique  3_clique neighbor_pos_0  ... structure pdb_aa_x       rsa chain_y pdb_aa_y    wcn_sc    wcn_ca        disorder      binding       catalysis aa_group_5  aa_group_HP
+0      A100_2LZM                0.191407                0.069395           10           0.061350                 9.600000                0.466667       5.0       1.0       0.0       1.0       A74_2LZM  ...         H        I  0.040609       A        I  0.951453  1.106609  Non disordered  Non binding  None catalytic  Aliphatic  Hydrophobic
+1      A101_2LZM                0.159964                0.107133            9           0.055215                 9.111111                0.500000       5.0       0.0       1.0       0.0        A7_2LZM  ...         H        N  0.000000       A        N  1.072101  1.123841  Non disordered  Non binding  None catalytic    Diverse        Polar
+2      A102_2LZM                0.164688                0.038605            9           0.055215                 9.111111                0.555556       5.0       1.0       0.0       0.0       A98_2LZM  ...         H        M  0.013393       A        M  1.035146  1.103690  Non disordered  Non binding  None catalytic    Diverse  Hydrophobic
+3      A103_2LZM                0.182888                0.044058           11           0.067485                 8.818182                0.472727       6.0       2.0       0.0       0.0       A74_2LZM  ...         H        V  0.045977       A        V  0.983698  1.128720  Non disordered  Non binding  None catalytic  Aliphatic  Hydrophobic
+4      A104_2LZM                0.152076                0.046268            9           0.055215                 9.000000                0.500000       4.0       1.0       0.0       1.0       A71_2LZM  ...         H        F  0.133333       A        F  0.965731  1.072385  Non disordered  Non binding  None catalytic   Aromatic  Hydrophobic
+..           ...                     ...                     ...          ...                ...                      ...                     ...       ...       ...       ...       ...            ...  ...       ...      ...       ...     ...      ...       ...       ...             ...          ...             ...        ...          ...
+159     A96_2LZM                0.161220                0.039029           10           0.061350                 8.500000                0.488889       6.0       0.0       0.0       1.0       A88_2LZM  ...         H        R  0.281022       A        R  0.680073  1.005326  Non disordered  Non binding  None catalytic    Charged        Polar
+160     A97_2LZM                0.154597                0.046635            9           0.055215                 8.777778                0.500000       5.0       0.0       1.0       0.0        A3_2LZM  ...         H        C  0.107784       A        C  0.885158  1.039143  Non disordered  Non binding  None catalytic       Tiny  Hydrophobic
+161     A98_2LZM                0.211385                0.115535           11           0.067485                 9.636364                0.418182       5.0       2.0       0.0       0.0       A94_2LZM  ...         H        A  0.000000       A        A  1.045176  1.122625  Non disordered  Non binding  None catalytic       Tiny        Polar
+162     A99_2LZM                0.164777                0.010115            8           0.049080                10.000000                0.642857       5.0       0.0       0.0       0.0       A95_2LZM  ...         H        L  0.000000       A        L  0.974588  1.102262  Non disordered  Non binding  None catalytic  Aliphatic  Hydrophobic
+163      A9_2LZM                0.021381                0.002759            7           0.042945                 8.142857                0.714286       4.0       0.0       0.0       0.0        A5_2LZM  ...         H        I  0.289340       A        I  0.715760  0.867586  Non disordered  Non binding  None catalytic  Aliphatic  Hydrophobic
+
+[164 rows x 110 columns]
+2025-04-17 10:55:55 DEBUG    164
+2025-04-17 10:55:55 DEBUG    164
+2025-04-17 10:55:55 DEBUG    glycosylated: 318
+2025-04-17 10:55:55 DEBUG    df:     pdb_position  eigenvector_centrality  betweenness_centrality  node_degree  degree_centrality  average_neighbor_degree  clustering_coefficient  5_clique  4_clique  ...       catalysis  aa_group_5  aa_group_HP total_catalytic_neigh total_disordered_neigh total_site_neigh median_wcn_ca_neigh median_wcn_sc_neigh median_rsa_neigh
+0      A100_2LZM                0.191407                0.069395           10           0.061350                 9.600000                0.466667       5.0       1.0  ...  None catalytic   Aliphatic  Hydrophobic                     0                      0                0            1.087324            0.970159         0.107784
+1      A101_2LZM                0.159964                0.107133            9           0.055215                 9.111111                0.500000       5.0       0.0  ...  None catalytic     Diverse        Polar                     0                      0                0            1.102262            0.974588         0.076881
+2      A102_2LZM                0.164688                0.038605            9           0.055215                 9.111111                0.555556       5.0       1.0  ...  None catalytic     Diverse  Hydrophobic                     0                      0                0            1.102262            0.974588         0.089655
+3      A103_2LZM                0.182888                0.044058           11           0.067485                 8.818182                0.472727       6.0       2.0  ...  None catalytic   Aliphatic  Hydrophobic                     0                      0                0            1.020878            0.951453         0.133333
+4      A104_2LZM                0.152076                0.046268            9           0.055215                 9.000000                0.500000       4.0       1.0  ...  None catalytic    Aromatic  Hydrophobic                     0                      0                0            1.020878            0.939735         0.057872
+..           ...                     ...                     ...          ...                ...                      ...                     ...       ...       ...  ...             ...         ...          ...                   ...                    ...              ...                 ...                 ...              ...
+159     A96_2LZM                0.161220                0.039029           10           0.061350                 8.500000                0.488889       6.0       0.0  ...  None catalytic     Charged        Polar                     0                      0                0            0.980767            0.841045         0.120432
+160     A97_2LZM                0.154597                0.046635            9           0.055215                 8.777778                0.500000       5.0       0.0  ...  None catalytic        Tiny  Hydrophobic                     0                      0                0            1.026474            0.913900         0.131221
+161     A98_2LZM                0.211385                0.115535           11           0.067485                 9.636364                0.418182       5.0       2.0  ...  None catalytic        Tiny        Polar                     0                      0                0            1.043247            0.952257         0.087591
+162     A99_2LZM                0.164777                0.010115            8           0.049080                10.000000                0.642857       5.0       0.0  ...  None catalytic   Aliphatic  Hydrophobic                     0                      0                0            1.105149            0.967575         0.066784
+163      A9_2LZM                0.021381                0.002759            7           0.042945                 8.142857                0.714286       4.0       0.0  ...  None catalytic   Aliphatic  Hydrophobic                     0                      0                0            0.962807            0.939013         0.192308
+
+[164 rows x 116 columns]
+2025-04-17 10:55:55 DEBUG    glycosylated: 347
+2025-04-17 10:55:55 DEBUG    raw feature table ['pdb_position', 'eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'neighbor_pos_0', 'neighbor_pos_1', 'neighbor_pos_2', 'neighbor_pos_3', 'neighbor_pos_4', 'neighbor_pos_5', 'neighbor_pos_6', 'neighbor_pos_7', 'neighbor_pos_8', 'neighbor_pos_9', 'neighbor_pos_10', 'neighbor_pos_11', 'neighbor_pos_12', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'chain_x', 'structure', 'pdb_aa_x', 'rsa', 'chain_y', 'pdb_aa_y', 'wcn_sc', 'wcn_ca', 'disorder', 'binding', 'catalysis', 'aa_group_5', 'aa_group_HP', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_I_neigh', 'total_N_neigh', 'total_M_neigh', 'total_V_neigh', 'total_F_neigh', 'total_Q_neigh', 'total_G_neigh', 'total_E_neigh', 'total_T_neigh', 'total_D_neigh', 'total_A_neigh', 'total_S_neigh', 'total_L_neigh', 'total_R_neigh', 'total_K_neigh', 'total_W_neigh', 'total_Y_neigh', 'total_P_neigh', 'total_H_neigh', 'total_C_neigh', 'total_ss_H_neigh', 'total_ss_T_neigh', 'total_nan_neigh', 'total_ss_S_neigh', 'total_ss_E_neigh', 'total_ss_B_neigh', 'total_Aliphatic_neigh', 'total_Diverse_neigh', 'total_Aromatic_neigh', 'total_Tiny_neigh', 'total_Charged_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'protein_interaction', 'total_contact_neigh', 'total_interface_neigh', 'glycosylation', 'total_glycosylated_neigh']
+2025-04-17 10:55:55 DEBUG    missing feature
+
+ 6_clique
+2025-04-17 10:55:55 DEBUG    missing feature
+
+ 7_clique
+2025-04-17 10:55:55 DEBUG    missing feature
+
+ total_ss_G_neigh
+2025-04-17 10:55:55 DEBUG    missing feature
+
+ total_ss_I_neigh
+2025-04-17 10:55:55 DEBUG    missing feature
+
+ total_ss_P_neigh
+2025-04-17 10:55:55 DEBUG    missing feature
+
+ total_ss_nan_neigh
+2025-04-17 10:55:55 DEBUG    numeric
+
+['eigenvector_centrality', 'betweenness_centrality', 'node_degree', 'degree_centrality', 'average_neighbor_degree', 'clustering_coefficient', '5_clique', '4_clique', '2_clique', '3_clique', 'graphlet1', 'graphlet2', 'graphlet3', 'graphlet4', 'graphlet5', 'graphlet6', 'graphlet7', 'graphlet8', 'graphlet9', 'graphlet10', 'graphlet11', 'graphlet12', 'graphlet13', 'graphlet14', 'graphlet15', 'graphlet16', 'graphlet17', 'graphlet18', 'graphlet19', 'graphlet20', 'graphlet21', 'graphlet22', 'graphlet23', 'graphlet24', 'graphlet25', 'graphlet26', 'graphlet27', 'graphlet28', 'graphlet29', 'graphlet30', 'graphlet31', 'graphlet32', 'graphlet33', 'graphlet34', 'graphlet35', 'graphlet36', 'graphlet37', 'graphlet38', 'graphlet39', 'graphlet40', 'graphlet41', 'graphlet42', 'graphlet43', 'graphlet44', 'graphlet45', 'graphlet46', 'graphlet47', 'graphlet48', 'graphlet49', 'graphlet50', 'graphlet51', 'graphlet52', 'graphlet53', 'graphlet54', 'graphlet55', 'graphlet56', 'graphlet57', 'graphlet58', 'graphlet59', 'graphlet60', 'graphlet61', 'graphlet62', 'graphlet63', 'graphlet64', 'graphlet65', 'graphlet66', 'graphlet67', 'graphlet68', 'graphlet69', 'graphlet70', 'graphlet71', 'graphlet72', 'graphlet73', 'rsa', 'wcn_sc', 'wcn_ca', 'total_catalytic_neigh', 'total_disordered_neigh', 'total_site_neigh', 'median_wcn_ca_neigh', 'median_wcn_sc_neigh', 'median_rsa_neigh', 'total_I_neigh', 'total_N_neigh', 'total_M_neigh', 'total_V_neigh', 'total_F_neigh', 'total_Q_neigh', 'total_G_neigh', 'total_E_neigh', 'total_T_neigh', 'total_D_neigh', 'total_A_neigh', 'total_S_neigh', 'total_L_neigh', 'total_R_neigh', 'total_K_neigh', 'total_W_neigh', 'total_Y_neigh', 'total_P_neigh', 'total_H_neigh', 'total_C_neigh', 'total_ss_H_neigh', 'total_ss_T_neigh', 'total_nan_neigh', 'total_ss_S_neigh', 'total_ss_E_neigh', 'total_ss_B_neigh', 'total_Aliphatic_neigh', 'total_Diverse_neigh', 'total_Aromatic_neigh', 'total_Tiny_neigh', 'total_Charged_neigh', 'total_Hydrophobic_neigh', 'total_Polar_neigh', 'total_contact_neigh', 'total_interface_neigh', 'total_glycosylated_neigh', '6_clique', '7_clique', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
+2025-04-17 10:55:55 DEBUG    cat
+
+['glycosylation', 'protein_interaction', 'disorder', 'binding', 'catalysis', 'pdb_aa', 'aa_group_5', 'aa_group_HP', 'structure']
+2025-04-17 10:55:55 DEBUG    evorator: 254
+2025-04-17 10:55:55 DEBUG    glycosylation
+2025-04-17 10:55:55 DEBUG    protein_interaction
+2025-04-17 10:55:55 DEBUG    disorder
+2025-04-17 10:55:55 DEBUG    binding
+2025-04-17 10:55:55 DEBUG    catalysis
+2025-04-17 10:55:55 DEBUG    pdb_aa
+2025-04-17 10:55:55 DEBUG    aa_group_5
+2025-04-17 10:55:55 DEBUG    aa_group_HP
+2025-04-17 10:55:55 DEBUG    structure
+2025-04-17 10:55:55 DEBUG    551
+2025-04-17 10:55:55 DEBUG    (164, 143)
+2025-04-17 10:55:55 DEBUG    all
+['6_clique', '7_clique', 'total_contact_neigh', 'total_interface_neigh', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
+2025-04-17 10:55:55 DEBUG    ABC
+[]
+2025-04-17 10:55:55 DEBUG    #
+['total_contact_neigh', 'total_interface_neigh', '6_clique', '7_clique', 'total_ss_G_neigh', 'total_ss_I_neigh', 'total_ss_P_neigh', 'total_ss_nan_neigh']
+2025-04-17 10:55:56 DEBUG    scores:-1.2432626427765023
+2025-04-17 10:55:56 DEBUG    scores:-0.9703205132801219
+2025-04-17 10:55:56 DEBUG    scores:0.2729421294963804
+2025-04-17 10:55:56 DEBUG    scores:[-1.2432626427765023, -0.9703205132801219, -0.6973783837837415, -0.4244362542873611, -0.15149412479098068, 0.12144800470539974, 0.39439013420178015, 0.6673322636981606, 0.940274393194541, 1.2132165226909213]
+2025-04-17 10:55:56 DEBUG    scores:     ResInd  predicted_score
+0       100        -0.492015
+1       101        -0.953941
+2       102        -0.614798
+3       103        -0.385919
+4       104        -0.597555
+..      ...              ...
+159      96         0.098332
+160      97        -0.238271
+161      98        -1.099798
+162      99        -0.654710
+163       9         0.856036
+
+[164 rows x 2 columns]
+2025-04-17 10:55:56 DEBUG    768
+2025-04-17 10:55:56 DEBUG    creating network image: python /scratch1/home/nnagar/repos/test_evorator/EvoRator/draw_3d_network.py output/2lzm_A/2LZM_A_coordinates.txt output/2lzm_A/2LZM_A_edgelist_draw.txt output/2lzm_A/evorator.scores.for.2d output/2lzm_A
+2025-04-17 10:55:57 DEBUG    773
+2025-04-17 10:55:57 DEBUG    779
+2025-04-17 10:55:57 DEBUG    DONE

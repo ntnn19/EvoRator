@@ -45,7 +45,7 @@ class myPDBList(Bio.PDB.PDBList):
         kwargs['pdb'] = structures_folder
         super().__init__(*args,**kwargs)
         self.alphafold_server = 'https://alphafold.ebi.ac.uk/' # entry/Q13469
-        self.pdb_server = 'https://ftp.ebi.ac.uk/pub/databases/pdb/'
+        self.pdb_server = 'ftp://ftp.ebi.ac.uk/pub/databases/pdb/'
         self.flat_tree = True
         return
 
@@ -142,7 +142,6 @@ class myPDBList(Bio.PDB.PDBList):
         else:
             return
 
-
         # Where does the final PDB file get saved?
         if pdir is None:
             path = self.local_pdb if not obsolete else self.obsolete_pdb
@@ -171,7 +170,7 @@ class myPDBList(Bio.PDB.PDBList):
 
         # Retrieve the file
         if self._verbose:
-            print("Downloading PDB structure '%s'..." % code)
+            print("Downloading PDB structure '%s'..." % url)
         try:
             urlcleanup()
             urlretrieve(url, filename)
