@@ -1,5 +1,9 @@
-# EvoRator
-EvoRator
+# EvoRator - citations
+[EvoRator
+](https://www.sciencedirect.com/science/article/pii/S0022283622001127?casa_token=RBtlK1Y7XqkAAAAA:IRYWI-wvpc7TY7JVGC3GTCYcudkiY1WfUasMyme-nERyzZQm0csC13EKLL7mWk7poeshIs44)
+
+[EvoRator 2
+](https://www.sciencedirect.com/science/article/pii/S0022283623002401?casa_token=iL--VW3JdOQAAAAA:Hb4SRt5D80qJ-7hd1rZIGL1NVN07c-7HnAK7Zc3lqPepOi3unkflI2QFm48Fk0gWr6NKGDMO)
 
 ## Clone this repository
 ```bash
