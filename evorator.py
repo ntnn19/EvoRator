@@ -1,19 +1,15 @@
 import click
 def add_pdb_header(pdb_file, header_text):
-    # Read the content of the existing PDB file
     with open(pdb_file, 'r') as file:
         lines = file.readlines()
 
-    # Check if there is already a header
     if any(line.startswith("HEADER") for line in lines):
         print(f"The file {pdb_file} already contains a HEADER.")
         return
 
-    # Add a header at the beginning of the file
     header_line = f"HEADER    {header_text}\n"
     lines.insert(0, header_line)  # Insert the header at the top of the file
 
-    # Write the updated content back to the PDB file
     with open(pdb_file, 'w') as file:
         file.writelines(lines)
 
@@ -80,7 +76,6 @@ def finalize_html(html_path, error_path, run_number,job_title,results_dir,consur
 def edit_success_html(CONSTS, html_path, job_title,results_dir,consurf_output=False,r2_test='',task='',done_figure_path=''):
 
     update_html(html_path, 'RUNNING', 'FINISHED')
-    # href = "https://consurf.tau.ac.il/ngl/viewer.php?job=1627817377"
     if consurf_output:
         if task=='PERfIFR':
 
@@ -193,18 +188,15 @@ def add_closing_html_tags(html_path, CONSTS, run_number):
     </body>
 </html>''')
 
-    # have to be last thing that is done
     sleep(2 * CONSTS.RELOAD_INTERVAL)
     update_html(html_path, CONSTS.RELOAD_TAGS, f'<!--{CONSTS.RELOAD_TAGS}-->')  # stop refresh
 
 
 def initialize_html(CONSTS, output_dir_path, html_path):
     path_tokens = output_dir_path.split('/')
-    # e.g., "/bioseq/data/results/sincopa/12345678/outputs"
     run_number = path_tokens[path_tokens.index(CONSTS.WEBSERVER_NAME) + 1]
 
     update_html(html_path, 'QUEUED', 'RUNNING')
-    # update_html(html_path, CONSTS.PROGRESS_BAR_ANCHOR, CONSTS.PROGRESS_BAR_TAG)  # add progress bar
 
     return run_number
 
@@ -243,7 +235,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
     else:
         run_number = initialize_html(CONSTS, results_dir, html_path)
-        # final_zip_path = f'{os.path.split(results_dir)[0]}/{CONSTS.WEBSERVER_NAME}_{run_number}'
 
         os.makedirs(results_dir, exist_ok=True)
 
@@ -373,7 +364,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
     logging.debug(f'{edgelist_file}')
 
 
-    # Feature extraction
     done_path = os.path.join(results_dir, job_title + f"{pdb_chain}_features_and_predictions.csv")
     subprocess.check_output(f'echo "{done_path}"  > {os.path.join("".join(os.path.split(results_dir)[:-1]), "evorator_output_path.txt")}',shell=True)
     done_path_neigh = os.path.join(results_dir, job_title + f"{pdb_chain}_neighbor_map.csv")
@@ -433,9 +423,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                     'total_ss_nan_neigh', 'wcn_ca', 'wcn_sc', 'glycosylation', 'protein_interaction', 'disorder',
                     'binding',
                     'catalysis', 'pdb_aa', 'aa_group_5', 'aa_group_HP', 'structure']
-    # if 'pdb_aa' not in df_merged.columns.tolist():
-    # logging.debug(df_merged['pdb_aa_x'])
-    # logging.debug(df_merged['pdb_aa_y'])
     try:
         df_merged['pdb_aa'] = df_merged['pdb_aa_x'].fillna(df_merged['pdb_aa_y'])
     except:
@@ -452,11 +439,8 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                                                                                               df_merged.columns.tolist()
                                                                                               if f.startswith(
             'neighbor_pos_')]
-    # categorical_features = ['glycosylation', 'protein_interaction', 'disorder', 'binding', 'catalysis', 'pdb_aa_x', 'aa_group_5', 'aa_group_HP','structure']
     categorical_features = ['glycosylation', 'protein_interaction', 'disorder', 'binding', 'catalysis', 'pdb_aa',
                             'aa_group_5', 'aa_group_HP', 'structure']
-    # if len(chain_list) <= 1 or orphan_prediction:
-    #     categorical_features.remove('protein_interaction')
     all_features = [f for f in df_merged.columns.tolist() if f not in not_features]
     numeric_features = [f for f in all_features if f not in categorical_features]
     if not orphan_prediction:
@@ -475,22 +459,16 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         logging.debug(f'evorator: {256}')
 
         consurf_df = pd.read_csv(consurf_output,sep='\t',skiprows=15,skipfooter=4,header=None)
-        # consurf_df = consurf_df[[0,1,2,3,5]]
         logging.debug(f'{consurf_df}')
         logging.debug(f'{consurf_df[[0, 1, 2, 3,4, 5, 7,8,9,10]]}')
 
-        # consurf_df.columns = ['position', 'seq', 'pdb_seq','normalized_score','color']
-        #consurf_df = consurf_df[[0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13]]
         if not consurfdb_query:
             consurf_df = consurf_df[[0, 1, 2, 3, 5, 6]]
-            # consurf_df = consurf_df[[0, 1, 2, 3, 5, 7]]
         else:
             consurf_df = consurf_df[[0, 1, 2, 3, 5, 6]]
-            # consurf_df = consurf_df[[0, 1, 2, 3, 5, 7]]
         consurf_df.columns = ['position', 'seq', 'pdb_seq', 'normalized_score', 'color', 'ci']
         logging.debug(f'{consurf_df.values.tolist()}')
 
-        # ALA117: A
 
         consurf_df = consurf_df[consurf_df['pdb_seq']!="         -"]
         consurf_df['chain'] =  consurf_df['pdb_seq'].str.split(":").str[-1]
@@ -518,7 +496,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         df_merged['mean_neigh_r4s_score'] = df_merged['pdb_position'].map(mean_neigh_r4s_score_d)
 
         features4consurf =all_features
-        # features4consurf =[f for f in features4consurf if f not in [*[str(i)+"_clique" for i in range(100)], *["graphlet"+str(i) for i in range(1,100)],*[f for f in features4consurf if (df_merged[f] == 0).all()]]]
 
         logging.debug(f'final features: {features4consurf}')
         logging.debug(f'cat features: {categorical_features}')
@@ -558,7 +535,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
 
         logging.debug(f'test line {320}')
 
-#        regressor.fit(X_train,y_train)
 
         logging.debug(f'test line {359}')
 
@@ -603,17 +579,12 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 'ci_lower'].astype(float)
             final_df = final_df.rename(columns=names_d)
             final_df['glycosylation'] = final_df['glycosylation'].str.replace('None glycosylated', 'Non glycosylated')
-#            final_df['protein_interaction'] = final_df['protein_interaction'].str.replace('missing', np.nan)
             final_df['protein_interaction'] = final_df['protein_interaction'].replace('missing', np.nan)
             final_df['structure'] = final_df['structure'].str.replace('missing', 'loop')
             final_df['catalysis'] = final_df['catalysis'].str.replace('None glycosylated', 'Non glycosylated')
 
             final_df = final_df.rename(columns=names_d_inv)
 
-        # final_df=final_df.rename(columns=names_d)
-        # final_df[['pdb_position', *features4consurf_2_write, 'consurf_score',
-        #       'predicted_score_4_missing_in_consurf', 'predicted_score']].to_csv(done_path, index=False)
-        # final_df=final_df.rename(columns=names_d_inv)
     else:
         try:
             df_merged['chain_x'] = df_merged['chain_x'].fillna(df_merged['chain_y'])
@@ -641,13 +612,10 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         logging.debug(f'ABC\n{df_merged[[*categorical_features]].columns[df_merged[[*categorical_features]].isna().any()].tolist()}')
         logging.debug(f'#\n{df_merged[[*numeric_features]].columns[df_merged[[*numeric_features]].isna().any()].tolist()}')
 
-        # Load ExtraTreesRegressor (like RandomForest)
         regressor = joblib.load(trained_regressor)
 
-        # Predict
         y_hat = regressor.predict(X)
         df_merged['predicted_score'] = y_hat
-        # Write feature set & predictions to file & plot feature importance
         df_merged = df_merged.rename(columns=names_d)
         complete_features_2_write = [names_d.get(f,f) for f in complete_features]
         df_merged['glycosylation'] = df_merged['glycosylation'].str.replace('None glycosylated', 'Non glycosylated')
@@ -702,7 +670,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 max_bin_neg = final_df[final_df['normalized_score'] < 0]['normalized_score'].max()
         elif prediction_task=='PERfIFR':
             final_df['diff'] = final_df['normalized_score'] - final_df['predicted_score']
-            # final_df['diff'] = final_df['normalized_score'] # test consistency with consurf
         elif prediction_task=='PERfIFR':
             min_bin_neg = final_df['diff'].min()
             max_bin_neg = final_df[final_df['diff'] < 0]['diff'].max()
@@ -756,21 +723,13 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         job_info = {"chainId": pdb_chain, "scoresFile": "evorator.scores", "jobTitle": job_title,
                     "pdbFile": pdbFileOriginal}
 
-        # job_info = {"chainId": pdb_chain, "scoresFile": "evorator_raw.scores", "jobTitle": job_title,
-        #             "pdbFile": pdbFileOriginal}
 
 
-    # final_df[
-    #     ['pdb_position', *features, *[f for f in missing_features if f not in features], 'normalized_score',
-    #      'predicted_score_train', 'predicted_score_test','predicted_score','Score']].to_csv(done_path, index=False)
 
 
-    # job_info = {"chainId": pdb_chain, "scoresFile": "evorator.scores", "jobTitle": job_title, "pdbFile": pdbFileOriginal}
     with open(os.path.join(results_dir,'job_info.json'), 'w') as f:
         json.dump(job_info, f)
 
-    # logging.debug(f'error shape={final_df[["lower_e", "upper_e"]].T}')
-    # if os.path.exists(done_path) or os.path.exists(done_figure_path):
     final_df.to_csv(done_path)
     map_predictions_to_pdb.map_scores_to_pdb(done_path,os.path.join(results_dir,pdbFileOriginal),os.path.join(results_dir,pdbFileOriginal.replace(".pdb","_evorator.pdb")))
     if os.path.exists(done_path):
@@ -789,7 +748,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
         sorter = np.argsort(unique_content_ints)
         unique_content_sorted = unique_content[sorter]
         le.fit(unique_content_sorted)
-        # content_coded = le.transform(content)
         reindexing_map = dict(zip(unique_content_sorted, range(len(unique_content_sorted))))
         content_coded_1 = content_df.iloc[:, 0].map(reindexing_map).astype(str)
         content_coded_2 = content_df.iloc[:, 1].map(reindexing_map).astype(str)
@@ -808,19 +766,14 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                 f.write(str(x)+'\t'+str(y)+'\n')
 
         cmd = f'python {os.path.join(scripts_dir,"draw_3d_network.py")} {COORD_FILE_FOR_DRAWING_NETWORK} {EDGELIST_FILE_FOR_DRAWING_NETWORK} {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
-#        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
-#        cmd = f'module load python/python-anaconda3.7-itaym; python {os.path.join(scripts_dir,"draw_3d_network.py")} {results_dir}/Compute_bulk_input/xyz/{pdb_name.upper()}_{pdb_chain}_xyz.txt {results_dir}/Compute_bulk_input/edgelist/{pdb_name.upper()}_{pdb_chain}_edgelist.txt {os.path.join(results_dir, "evorator.scores.for.2d")} {results_dir}'
         logging.debug(f'creating network image: {cmd}')
         subprocess.check_output(cmd, shell=True)
         logging.debug(f'773')
-        # try:
         if prediction_task=='PERfGR':
             finalize_html(html_path, error_path, run_number, job_title,results_dir,consurf_output,task='PERfGR')
         elif prediction_task=='PERfO':
 
 
-            # pssm prediction #
-            # if prediction_task != 'PERfGR' and prediction_task != 'PERfIFR':
             matrix = matlist.blosum62
             aa = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W',
                   'Y']
@@ -831,8 +784,6 @@ def main(pdb_name,pdb_file,pdb_chain,catalytic_sites,results_dir, orphan_predict
                     tmp_vec.append(matrix.get((AA1, AA2), matrix.get((AA2, AA1))))
                 blosum_d[AA1] = tmp_vec
             blosum_cols = ['blosum' + str(i) for i in range(len(blosum_d['A']))]
-            # logging.debug(f"{final_df['pdb_aa'].isnull().all()}")
-            # logging.debug(f"{final_df['pdb_aa'].tolist()}")
             if final_df['pdb_aa'].unique().tolist() == ['missing']:
                 for c in blosum_cols:
                     final_df[c] = np.nan
